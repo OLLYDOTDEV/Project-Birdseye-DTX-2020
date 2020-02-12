@@ -4588,108 +4588,6 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 </deviceset>
 </devicesets>
 </library>
-<library name="Dialight - 598-8710-307F">
-<description>Upverter Parts Library
-
-Created by Upverter.com</description>
-<packages>
-<package name="DIALIGHT_598-8710-307F_0">
-<description>Micro LED</description>
-<wire x1="-0.8" y1="-0.8" x2="-0.8" y2="0.8" width="0.15" layer="51"/>
-<wire x1="-0.8" y1="0.8" x2="0.8" y2="0.8" width="0.15" layer="51"/>
-<wire x1="0.8" y1="0.8" x2="0.8" y2="-0.8" width="0.15" layer="51"/>
-<wire x1="0.8" y1="-0.8" x2="-0.8" y2="-0.8" width="0.15" layer="51"/>
-<wire x1="-1.1" y1="-0.95" x2="-1.1" y2="0.95" width="0.1" layer="39"/>
-<wire x1="-1.1" y1="0.95" x2="1.1" y2="0.95" width="0.1" layer="39"/>
-<wire x1="1.1" y1="0.95" x2="1.1" y2="-0.95" width="0.1" layer="39"/>
-<wire x1="1.1" y1="-0.95" x2="-1.1" y2="-0.95" width="0.1" layer="39"/>
-<wire x1="-0.8" y1="1.225" x2="0.8" y2="1.225" width="0.15" layer="21"/>
-<wire x1="-0.8" y1="-1.225" x2="0.8" y2="-1.225" width="0.15" layer="21"/>
-<text x="1.35" y="-0.125" size="1" layer="25">&gt;NAME</text>
-<circle x="-1.6" y="0.475" radius="0.25" width="0" layer="21"/>
-<smd name="1" x="-0.7" y="0.5" dx="0.6" dy="0.7" layer="1"/>
-<smd name="2" x="0.7" y="0.5" dx="0.6" dy="0.7" layer="1"/>
-<smd name="3" x="-0.7" y="-0.5" dx="0.6" dy="0.7" layer="1"/>
-<smd name="4" x="0.7" y="-0.5" dx="0.6" dy="0.7" layer="1"/>
-</package>
-</packages>
-<symbols>
-<symbol name="DIALIGHT_598-8710-307F_0_0">
-<description>Micro LED</description>
-<wire x1="0" y1="-20.32" x2="2.54" y2="-20.32" width="0.508" layer="94"/>
-<wire x1="2.54" y1="-20.32" x2="2.54" y2="-10.16" width="0.508" layer="94"/>
-<wire x1="2.54" y1="-10.16" x2="5.08" y2="-10.16" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-10.16" x2="5.08" y2="-7.62" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-7.62" x2="10.16" y2="-10.16" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-10.16" x2="5.08" y2="-12.7" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-12.7" x2="5.08" y2="-10.16" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-7.62" x2="10.16" y2="-12.7" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-10.16" x2="12.7" y2="-10.16" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-17.78" x2="5.08" y2="-22.86" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-22.86" x2="10.16" y2="-20.32" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-20.32" x2="5.08" y2="-17.78" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-17.78" x2="10.16" y2="-22.86" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-27.94" x2="5.08" y2="-33.02" width="0.508" layer="94"/>
-<wire x1="5.08" y1="-33.02" x2="10.16" y2="-30.48" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-30.48" x2="5.08" y2="-27.94" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-27.94" x2="10.16" y2="-33.02" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-30.48" x2="12.7" y2="-30.48" width="0.508" layer="94"/>
-<wire x1="10.16" y1="-20.32" x2="12.7" y2="-20.32" width="0.508" layer="94"/>
-<wire x1="2.54" y1="-20.32" x2="2.54" y2="-30.48" width="0.508" layer="94"/>
-<wire x1="2.54" y1="-30.48" x2="5.08" y2="-30.48" width="0.508" layer="94"/>
-<wire x1="2.54" y1="-20.32" x2="5.08" y2="-20.32" width="0.508" layer="94"/>
-<wire x1="0" y1="-35.56" x2="0" y2="-5.08" width="0.508" layer="94"/>
-<wire x1="0" y1="-5.08" x2="12.7" y2="-5.08" width="0.508" layer="94"/>
-<wire x1="12.7" y1="-5.08" x2="12.7" y2="-35.56" width="0.508" layer="94"/>
-<wire x1="12.7" y1="-35.56" x2="0" y2="-35.56" width="0.508" layer="94"/>
-<wire x1="12.7" y1="-20.32" x2="12.7" y2="-20.32" width="0.15" layer="94"/>
-<wire x1="12.7" y1="-10.16" x2="12.7" y2="-10.16" width="0.15" layer="94"/>
-<wire x1="12.7" y1="-30.48" x2="12.7" y2="-30.48" width="0.15" layer="94"/>
-<wire x1="0" y1="-20.32" x2="0" y2="-20.32" width="0.15" layer="94"/>
-<text x="0" y="-2.54" size="2.54" layer="95" align="top-left">&gt;NAME</text>
-<text x="0" y="-37.846" size="2.54" layer="95" align="top-left">598-8710-307F</text>
-<pin name="GREEN_CATHODE" x="17.78" y="-20.32" visible="pad" length="middle" rot="R180"/>
-<pin name="RED_CATHODE" x="17.78" y="-10.16" visible="pad" length="middle" rot="R180"/>
-<pin name="BLUE_CATHODE" x="17.78" y="-30.48" visible="pad" length="middle" rot="R180"/>
-<pin name="COMMON_ANODE" x="-5.08" y="-20.32" visible="pad" length="middle"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="DIALIGHT_598-8710-307F" prefix="D">
-<description>Micro LED</description>
-<gates>
-<gate name="G$0" symbol="DIALIGHT_598-8710-307F_0_0" x="0" y="0"/>
-</gates>
-<devices>
-<device name="DIALIGHT_598-8710-307F_0_0" package="DIALIGHT_598-8710-307F_0">
-<connects>
-<connect gate="G$0" pin="BLUE_CATHODE" pad="3"/>
-<connect gate="G$0" pin="COMMON_ANODE" pad="4"/>
-<connect gate="G$0" pin="GREEN_CATHODE" pad="1"/>
-<connect gate="G$0" pin="RED_CATHODE" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="CENTROID_NOT_SPECIFIED" value="No"/>
-<attribute name="DATASHEET" value="https://media.digikey.com/pdf/Data%20Sheets/Dialight%20PDFs/598_Series_0606_Pkg.pdf"/>
-<attribute name="DIGIKEY_DESCRIPTION" value="DIODE LED RGB CLEAR 0606 SMD"/>
-<attribute name="DIGIKEY_PART_NUMBER" value="350-2096-1-ND"/>
-<attribute name="LEAD_FREE" value="yes"/>
-<attribute name="MF" value="Dialight"/>
-<attribute name="MOUSER_PART_NUMBER" value="645-598-8710-307F"/>
-<attribute name="MPN" value="598-8710-307F"/>
-<attribute name="PACKAGE" value="LED_SMD"/>
-<attribute name="PREFIX" value="D"/>
-<attribute name="ROHS" value="yes"/>
-<attribute name="TEMPERATURE_RANGE_HIGH" value="+100°C"/>
-<attribute name="TEMPERATURE_RANGE_LOW" value="-40°C"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="Seeed-Resistor-2016">
 <packages>
 <package name="PR-D2.3XL6.5MM">
@@ -4800,9 +4698,6 @@ type 0207, grid 10 mm</description>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$1" library="diy-modules" deviceset="MOTION-PIR-DYP-ME003" device=""/>
 <part name="M1" library="diy-modules" deviceset="WIRELESS-NRF24L01-PA-EXT" device=""/>
-<part name="D1" library="Dialight - 598-8710-307F" deviceset="DIALIGHT_598-8710-307F" device="DIALIGHT_598-8710-307F_0_0"/>
-<part name="D2" library="Dialight - 598-8710-307F" deviceset="DIALIGHT_598-8710-307F" device="DIALIGHT_598-8710-307F_0_0"/>
-<part name="D3" library="Dialight - 598-8710-307F" deviceset="DIALIGHT_598-8710-307F" device="DIALIGHT_598-8710-307F_0_0"/>
 <part name="R2" library="Seeed-Resistor-2016" deviceset="DIP-RES-2.2K-5%-1/4W(PR-D2.3XL6.5MM)" device="" value="2.2K"/>
 <part name="R3" library="Seeed-Resistor-2016" deviceset="DIP-RES-3.3K-5%-1/4W(PR-D2.3XL6.5MM)" device="" value="3.3K"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -4863,15 +4758,6 @@ type 0207, grid 10 mm</description>
 <instance part="M1" gate="G$1" x="186.69" y="12.7" smashed="yes">
 <attribute name="NAME" x="207.01" y="22.86" size="1.778" layer="95"/>
 <attribute name="VALUE" x="207.01" y="20.32" size="1.778" layer="96"/>
-</instance>
-<instance part="D1" gate="G$0" x="93.98" y="-29.21" smashed="yes">
-<attribute name="NAME" x="93.98" y="-31.75" size="2.54" layer="95" align="top-left"/>
-</instance>
-<instance part="D2" gate="G$0" x="93.98" y="-71.12" smashed="yes">
-<attribute name="NAME" x="93.98" y="-73.66" size="2.54" layer="95" align="top-left"/>
-</instance>
-<instance part="D3" gate="G$0" x="93.98" y="-111.76" smashed="yes">
-<attribute name="NAME" x="93.98" y="-114.3" size="2.54" layer="95" align="top-left"/>
 </instance>
 <instance part="R2" gate="G$1" x="133.35" y="27.94" smashed="yes" rot="R90">
 <attribute name="NAME" x="132.08" y="24.13" size="1.27" layer="95" ratio="10" rot="R90"/>
@@ -5014,19 +4900,6 @@ type 0207, grid 10 mm</description>
 <wire x1="133.35" y1="21.59" x2="133.35" y2="24.13" width="0.1524" layer="91"/>
 <wire x1="133.35" y1="21.59" x2="143.51" y2="21.59" width="0.1524" layer="91"/>
 <junction x="133.35" y="21.59"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="D3" gate="G$0" pin="COMMON_ANODE"/>
-<wire x1="88.9" y1="-132.08" x2="88.9" y2="-91.44" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="-91.44" x2="88.9" y2="-49.53" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="-49.53" x2="88.9" y2="-48.26" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="-48.26" x2="90.17" y2="-48.26" width="0.1524" layer="91"/>
-<pinref part="D2" gate="G$0" pin="COMMON_ANODE"/>
-<junction x="88.9" y="-91.44"/>
-<pinref part="D1" gate="G$0" pin="COMMON_ANODE"/>
-<junction x="88.9" y="-49.53"/>
 </segment>
 </net>
 </nets>
