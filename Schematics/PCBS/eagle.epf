@@ -391,6 +391,7 @@ UsedLibraryUrn="urn:adsk.eagle:library:365"
 UsedLibraryUrn="urn:adsk.eagle:library:370"
 UsedLibraryUrn="urn:adsk.eagle:library:11396471"
 UsedLibraryUrn="urn:adsk.eagle:library:16378657"
+UsedLibraryUrn="urn:adsk.eagle:library:14854419"
 UsedLibraryUrn="urn:adsk.eagle:library:138"
 UsedLibraryUrn="urn:adsk.eagle:library:139"
 UsedLibraryUrn="urn:adsk.eagle:library:140"
@@ -502,7 +503,6 @@ UsedLibrary="C:/Users/obell/Documents/GitHub/2020/Project-Birdseye-DTX-2020/Sche
 UsedLibrary="C:/Users/obell/Documents/GitHub/2020/Project-Birdseye-DTX-2020/Schematics/libraries/User-Submitted.lbr"
 UsedLibrary="C:/Users/obell/Documents/GitHub/2020/Project-Birdseye-DTX-2020/Schematics/libraries/adafruit.lbr"
 UsedLibrary="C:/Users/obell/Documents/GitHub/2020/Project-Birdseye-DTX-2020/Schematics/libraries/diy-modules.lbr"
-UsedLibraryUrn="urn:adsk.eagle:library:14854419"
 
 [Win_1]
 Type="Control Panel"
