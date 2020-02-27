@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -4751,9 +4751,9 @@ type 0207, grid 10 mm</description>
 <instance part="GND6" gate="1" x="67.31" y="104.14" smashed="yes" rot="R90">
 <attribute name="VALUE" x="69.85" y="101.6" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$1" gate="G$1" x="222.25" y="129.54" smashed="yes" rot="R270">
-<attribute name="NAME" x="242.57" y="142.24" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="240.03" y="142.24" size="1.778" layer="96" rot="R270"/>
+<instance part="U$1" gate="G$1" x="215.9" y="119.38" smashed="yes" rot="R270">
+<attribute name="NAME" x="236.22" y="132.08" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="233.68" y="132.08" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="M1" gate="G$1" x="186.69" y="12.7" smashed="yes">
 <attribute name="NAME" x="207.01" y="22.86" size="1.778" layer="95"/>
@@ -4849,13 +4849,13 @@ type 0207, grid 10 mm</description>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="VCC_2"/>
-<wire x1="50.8" y1="35.56" x2="44.45" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="44.45" y1="35.56" x2="44.45" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="35.56" x2="43.18" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="35.56" x2="43.18" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VCC_1"/>
-<wire x1="44.45" y1="40.64" x2="44.45" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="50.8" y1="40.64" x2="44.45" y2="40.64" width="0.1524" layer="91"/>
-<junction x="44.45" y="40.64"/>
-<label x="44.45" y="48.26" size="0.6096" layer="95" rot="R90" xref="yes"/>
+<wire x1="43.18" y1="40.64" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="40.64" x2="43.18" y2="40.64" width="0.1524" layer="91"/>
+<junction x="43.18" y="40.64"/>
+<label x="43.18" y="48.26" size="0.6096" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
 <pinref part="R2" gate="G$1" pin="2"/>
