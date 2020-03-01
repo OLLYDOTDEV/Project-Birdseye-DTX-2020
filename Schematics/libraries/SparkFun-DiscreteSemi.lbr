@@ -1642,6 +1642,9 @@ Switches electronic signals</description>
 </polygon>
 <text x="5.08" y="0" size="1.778" layer="95" font="vector">&gt;NAME</text>
 <text x="5.08" y="-2.54" size="1.778" layer="96" font="vector">&gt;VALUE</text>
+<text x="-4.572" y="-2.032" size="1.27" layer="94">G</text>
+<text x="0.762" y="2.54" size="1.27" layer="94">S</text>
+<text x="0.508" y="-3.81" size="1.27" layer="94">D</text>
 </symbol>
 <symbol name="LABELED-PMOS">
 <description>&lt;h3&gt;P-channel MOSFET&lt;/h3&gt;
