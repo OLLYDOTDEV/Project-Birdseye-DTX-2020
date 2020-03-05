@@ -11039,31 +11039,31 @@ Switches electronic signals</description>
 <part name="D3" library="Dialight - 598-8710-307F" deviceset="DIALIGHT_598-8710-307F" device="DIALIGHT_598-8710-307F_0_0">
 <attribute name="SPICEPREFIX" value="E"/>
 </part>
-<part name="Q1" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q1" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q2" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q2" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q3" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q3" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q4" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q4" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q5" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q5" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q6" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q6" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q7" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q7" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q8" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q8" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q9" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2">
+<part name="Q9" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device="">

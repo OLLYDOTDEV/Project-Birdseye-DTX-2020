@@ -1,2 +1,1 @@
-Schematics/PCBS/ROMS.s#*
-Schematics/PCBS/LEDs.s#*
+Schematics/PCBS/*.s#*
