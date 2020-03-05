@@ -11117,7 +11117,6 @@ Switches electronic signals</description>
 <part name="R1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="R-US_" device="0207/10" package3d_urn="urn:adsk.eagle:package:6240597/1" value="10K"/>
 <part name="GND17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND18" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="R2" library="SparkFun-Resistors" deviceset="10OHM" device="-HORIZ-1/4W-1%" value="10K"/>
 <part name="R3" library="SparkFun-Resistors" deviceset="10OHM" device="-HORIZ-1/4W-1%" value="10K"/>
 <part name="Q10" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCH" device="-BSS138" value="220mA/50V/3.5Ω"/>
 <part name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X8" device="CLEANBIG" package3d_urn="urn:adsk.eagle:package:6240708/1"/>
@@ -11216,10 +11215,6 @@ Switches electronic signals</description>
 </instance>
 <instance part="GND18" gate="1" x="462.28" y="40.64" smashed="yes" rot="R90">
 <attribute name="VALUE" x="464.82" y="38.1" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R2" gate="G$1" x="441.96" y="-2.54" smashed="yes" rot="R270">
-<attribute name="NAME" x="443.484" y="-2.54" size="1.778" layer="95" font="vector" rot="R270" align="bottom-center"/>
-<attribute name="VALUE" x="440.436" y="-2.54" size="1.778" layer="96" font="vector" rot="R270" align="top-center"/>
 </instance>
 <instance part="R3" gate="G$1" x="464.82" y="-2.54" smashed="yes" rot="R270">
 <attribute name="NAME" x="466.344" y="-2.54" size="1.778" layer="95" font="vector" rot="R270" align="bottom-center"/>
@@ -11343,6 +11338,11 @@ Switches electronic signals</description>
 <wire x1="454.66" y1="-2.54" x2="454.66" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="454.66" y1="-7.62" x2="464.82" y2="-7.62" width="0.1524" layer="91"/>
 <junction x="464.82" y="-7.62"/>
+</segment>
+<segment>
+<wire x1="452.12" y1="33.02" x2="457.2" y2="33.02" width="0.1524" layer="91"/>
+<label x="457.2" y="33.02" size="0.5588" layer="95" xref="yes"/>
+<pinref part="JP1" gate="G$1" pin="5"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -11592,21 +11592,12 @@ Switches electronic signals</description>
 <pinref part="JP1" gate="G$1" pin="3"/>
 </segment>
 <segment>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="447.04" y1="5.08" x2="441.96" y2="5.08" width="0.1524" layer="91"/>
-<wire x1="441.96" y1="5.08" x2="441.96" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="441.96" y1="5.08" x2="439.42" y2="5.08" width="0.1524" layer="91"/>
-<junction x="441.96" y="5.08"/>
+<wire x1="447.04" y1="5.08" x2="439.42" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="Q10" gate="NMOS" pin="D"/>
 <label x="439.42" y="5.08" size="0.5588" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="5V_RAIL" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="441.96" y1="-7.62" x2="441.96" y2="-10.16" width="0.1524" layer="91"/>
-<label x="441.96" y="-10.16" size="0.6096" layer="95" rot="R270" xref="yes"/>
-</segment>
 <segment>
 <wire x1="452.12" y1="35.56" x2="457.2" y2="35.56" width="0.1524" layer="91"/>
 <label x="457.2" y="35.56" size="0.5588" layer="95" xref="yes"/>
@@ -11625,13 +11616,6 @@ Switches electronic signals</description>
 <pinref part="JP1" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="3.3_RAIL" class="0">
-<segment>
-<wire x1="452.12" y1="33.02" x2="457.2" y2="33.02" width="0.1524" layer="91"/>
-<label x="457.2" y="33.02" size="0.5588" layer="95" xref="yes"/>
-<pinref part="JP1" gate="G$1" pin="5"/>
-</segment>
-</net>
 </nets>
 </sheet>
 </sheets>
@@ -11644,8 +11628,6 @@ Switches electronic signals</description>
 <approved hash="104,1,596.9,-40.64,IC1,AVCC,3.3V_RAIL,,,"/>
 <approved hash="104,1,429.26,-55.88,U1,GND_2,GND,,,"/>
 <approved hash="104,1,500.38,-55.88,U1,GND_3,GND,,,"/>
-<approved hash="113,1,502.587,-8.89,JP1,,,,,"/>
-<approved hash="113,1,558.123,30.3479,J1,,,,,"/>
 </errors>
 </schematic>
 </drawing>
