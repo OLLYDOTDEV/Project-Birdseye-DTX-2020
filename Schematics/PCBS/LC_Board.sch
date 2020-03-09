@@ -11479,9 +11479,9 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <part name="Q10" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCH" device="-BSS138" value="220mA/50V/3.5Ω"/>
 <part name="E1" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="DPADS_PAD" device="-0400-S" package3d_urn="urn:adsk.eagle:package:15662248/2"/>
 <part name="E2" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="DPADS_PAD" device="-0400-S" package3d_urn="urn:adsk.eagle:package:15662248/2"/>
-<part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X8" device="" package3d_urn="urn:adsk.eagle:package:22409/2"/>
+<part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X8" device="" package3d_urn="urn:adsk.eagle:package:22409/2" value="IO"/>
 <part name="C2" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" package3d_urn="urn:adsk.eagle:package:37414/1" value="0.1uF"/>
-<part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
+<part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2" value="switching from 5v RDI to 3.3v RDI input"/>
 <part name="JP3" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
 </parts>
 <sheets>
@@ -11489,7 +11489,6 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <plain>
 <text x="593.67" y="29.57" size="1.778" layer="91" rot="R180">Reset Pin Headers</text>
 <text x="461.01" y="37.084" size="0.5588" layer="91" rot="R90">max 20V</text>
-<text x="434.34" y="-5.08" size="0.8128" layer="91">switching from 5v RDI to 3.3v RDI</text>
 </plain>
 <instances>
 <instance part="D1" gate="G$0" x="571.5" y="-132.08" smashed="yes" rot="R270">
@@ -11589,7 +11588,6 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <attribute name="NAME" x="578.485" y="34.6075" size="1.778" layer="95"/>
 </instance>
 <instance part="JP1" gate="A" x="449.58" y="33.02" smashed="yes" rot="R180">
-<attribute name="NAME" x="455.93" y="19.685" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="455.93" y="45.72" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C2" gate="G$1" x="561.34" y="33.02" smashed="yes" rot="R90">
@@ -11597,7 +11595,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <attribute name="VALUE" x="563.499" y="34.544" size="1.778" layer="96" font="vector" rot="R90"/>
 </instance>
 <instance part="JP2" gate="A" x="436.88" y="-2.54" smashed="yes" rot="R270">
-<attribute name="VALUE" x="429.26" y="3.81" size="1.778" layer="96" rot="R270"/>
+<attribute name="VALUE" x="448.31" y="-5.08" size="0.8128" layer="96" rot="R180"/>
 </instance>
 <instance part="JP3" gate="A" x="474.98" y="-2.54" smashed="yes" rot="R270">
 <attribute name="VALUE" x="467.36" y="3.81" size="1.778" layer="96" rot="R270"/>
@@ -11983,13 +11981,6 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <pinref part="JP1" gate="A" pin="6"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="A" pin="3"/>
-<wire x1="434.34" y1="7.62" x2="434.34" y2="0" width="0.1524" layer="91"/>
-<wire x1="434.34" y1="7.62" x2="477.52" y2="7.62" width="0.1524" layer="91"/>
-<pinref part="JP3" gate="A" pin="1"/>
-<wire x1="477.52" y1="7.62" x2="477.52" y2="0" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="JP2" gate="A" pin="2"/>
 <wire x1="436.88" y1="5.08" x2="436.88" y2="0" width="0.1524" layer="91"/>
 <wire x1="431.8" y1="5.08" x2="436.88" y2="5.08" width="0.1524" layer="91"/>
@@ -12021,6 +12012,16 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <wire x1="474.98" y1="5.08" x2="474.98" y2="0" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="RDI_3.3V" class="0">
+<segment>
+<pinref part="JP2" gate="A" pin="3"/>
+<wire x1="434.34" y1="7.62" x2="434.34" y2="0" width="0.1524" layer="91"/>
+<wire x1="434.34" y1="7.62" x2="477.52" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="A" pin="1"/>
+<wire x1="477.52" y1="7.62" x2="477.52" y2="0" width="0.1524" layer="91"/>
+<label x="434.34" y="7.62" size="0.8128" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -12033,6 +12034,11 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <approved hash="104,1,596.9,-40.64,IC1,AVCC,3.3V_RAIL,,,"/>
 <approved hash="104,1,429.26,-55.88,U1,GND_2,GND,,,"/>
 <approved hash="104,1,500.38,-55.88,U1,GND_3,GND,,,"/>
+<approved hash="106,1,452.12,22.86,2BD,,,,,"/>
+<approved hash="106,1,452.12,27.94,5V_RAIL,,,,,"/>
+<approved hash="113,1,436.88,-0.2794,JP2,,,,,"/>
+<approved hash="113,1,474.98,-0.2794,JP3,,,,,"/>
+<approved hash="115,1,434.34,3.81,RDI,,,,,"/>
 </errors>
 </schematic>
 </drawing>
