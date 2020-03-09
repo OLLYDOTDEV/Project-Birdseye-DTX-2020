@@ -11397,31 +11397,31 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <part name="D3" library="Dialight - 598-8710-307F" deviceset="DIALIGHT_598-8710-307F" device="DIALIGHT_598-8710-307F_0_0">
 <attribute name="SPICEPREFIX" value="E"/>
 </part>
-<part name="Q1" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED1RED" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q2" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED1GREEN" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q3" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED1BLUE" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q4" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED2RED" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q5" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED2GREEN" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q6" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED2BLUE" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q7" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED3RED" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q8" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED3GREEN" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
-<part name="Q9" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
+<part name="LED3BLUE" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="TRANSISTOR-FET_DMN2004K" device="" package3d_urn="urn:adsk.eagle:package:15662287/2" value="BSS138">
 <attribute name="SPICEPREFIX" value="Q"/>
 </part>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device="">
@@ -11500,17 +11500,17 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <instance part="D3" gate="G$0" x="657.86" y="-132.08" smashed="yes" rot="R270">
 <attribute name="NAME" x="655.32" y="-132.08" size="2.54" layer="95" rot="R270" align="top-left"/>
 </instance>
-<instance part="Q1" gate="G$1" x="541.02" y="-154.94" smashed="yes" rot="R180">
+<instance part="LED1RED" gate="G$1" x="541.02" y="-154.94" smashed="yes" rot="R180">
 <attribute name="VALUE" x="535.94" y="-160.02" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="Q2" gate="G$1" x="551.18" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q3" gate="G$1" x="561.34" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q4" gate="G$1" x="584.2" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q5" gate="G$1" x="594.36" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q6" gate="G$1" x="604.52" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q7" gate="G$1" x="627.38" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q8" gate="G$1" x="637.54" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="Q9" gate="G$1" x="647.7" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED1GREEN" gate="G$1" x="551.18" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED1BLUE" gate="G$1" x="561.34" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED2RED" gate="G$1" x="584.2" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED2GREEN" gate="G$1" x="594.36" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED2BLUE" gate="G$1" x="604.52" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED3RED" gate="G$1" x="627.38" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED3GREEN" gate="G$1" x="637.54" y="-154.94" smashed="yes" rot="R180"/>
+<instance part="LED3BLUE" gate="G$1" x="647.7" y="-154.94" smashed="yes" rot="R180"/>
 <instance part="GND1" gate="1" x="541.02" y="-162.56" smashed="yes">
 <attribute name="VALUE" x="538.48" y="-165.1" size="1.778" layer="96"/>
 </instance>
@@ -11607,55 +11607,55 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <net name="N$1" class="0">
 <segment>
 <pinref part="D1" gate="G$0" pin="BLUE_CATHODE"/>
-<pinref part="Q1" gate="G$1" pin="S"/>
+<pinref part="LED1RED" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="D1" gate="G$0" pin="GREEN_CATHODE"/>
-<pinref part="Q2" gate="G$1" pin="S"/>
+<pinref part="LED1GREEN" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="D1" gate="G$0" pin="RED_CATHODE"/>
-<pinref part="Q3" gate="G$1" pin="S"/>
+<pinref part="LED1BLUE" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="D2" gate="G$0" pin="BLUE_CATHODE"/>
-<pinref part="Q4" gate="G$1" pin="S"/>
+<pinref part="LED2RED" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$5" class="0">
 <segment>
 <pinref part="D2" gate="G$0" pin="GREEN_CATHODE"/>
-<pinref part="Q5" gate="G$1" pin="S"/>
+<pinref part="LED2GREEN" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$6" class="0">
 <segment>
 <pinref part="D2" gate="G$0" pin="RED_CATHODE"/>
-<pinref part="Q6" gate="G$1" pin="S"/>
+<pinref part="LED2BLUE" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
 <pinref part="D3" gate="G$0" pin="BLUE_CATHODE"/>
-<pinref part="Q7" gate="G$1" pin="S"/>
+<pinref part="LED3RED" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$8" class="0">
 <segment>
 <pinref part="D3" gate="G$0" pin="GREEN_CATHODE"/>
-<pinref part="Q8" gate="G$1" pin="S"/>
+<pinref part="LED3GREEN" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="D3" gate="G$0" pin="RED_CATHODE"/>
-<pinref part="Q9" gate="G$1" pin="S"/>
+<pinref part="LED3BLUE" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="3.3V_RAIL" class="0">
@@ -11716,39 +11716,39 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="Q1" gate="G$1" pin="D"/>
+<pinref part="LED1RED" gate="G$1" pin="D"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q2" gate="G$1" pin="D"/>
+<pinref part="LED1GREEN" gate="G$1" pin="D"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q3" gate="G$1" pin="D"/>
+<pinref part="LED1BLUE" gate="G$1" pin="D"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q4" gate="G$1" pin="D"/>
+<pinref part="LED2RED" gate="G$1" pin="D"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q5" gate="G$1" pin="D"/>
+<pinref part="LED2GREEN" gate="G$1" pin="D"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q6" gate="G$1" pin="D"/>
+<pinref part="LED2BLUE" gate="G$1" pin="D"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q7" gate="G$1" pin="D"/>
+<pinref part="LED3RED" gate="G$1" pin="D"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q8" gate="G$1" pin="D"/>
+<pinref part="LED3GREEN" gate="G$1" pin="D"/>
 <pinref part="GND8" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="Q9" gate="G$1" pin="D"/>
+<pinref part="LED3BLUE" gate="G$1" pin="D"/>
 <pinref part="GND9" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -11814,7 +11814,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="561.34" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="G$1" pin="G"/>
+<pinref part="LED1RED" gate="G$1" pin="G"/>
 <wire x1="546.1" y1="-152.4" x2="546.1" y2="-162.56" width="0.1524" layer="91"/>
 <label x="546.1" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11826,7 +11826,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="563.88" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q2" gate="G$1" pin="G"/>
+<pinref part="LED1GREEN" gate="G$1" pin="G"/>
 <wire x1="556.26" y1="-152.4" x2="556.26" y2="-162.56" width="0.1524" layer="91"/>
 <label x="556.26" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11838,7 +11838,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="566.42" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q3" gate="G$1" pin="G"/>
+<pinref part="LED1BLUE" gate="G$1" pin="G"/>
 <wire x1="566.42" y1="-152.4" x2="566.42" y2="-162.56" width="0.1524" layer="91"/>
 <label x="566.42" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11850,7 +11850,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="571.5" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q5" gate="G$1" pin="G"/>
+<pinref part="LED2GREEN" gate="G$1" pin="G"/>
 <wire x1="599.44" y1="-152.4" x2="599.44" y2="-162.56" width="0.1524" layer="91"/>
 <label x="599.44" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11862,7 +11862,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="574.04" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q6" gate="G$1" pin="G"/>
+<pinref part="LED2BLUE" gate="G$1" pin="G"/>
 <wire x1="609.6" y1="-152.4" x2="609.6" y2="-162.56" width="0.1524" layer="91"/>
 <label x="609.6" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11874,7 +11874,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="576.58" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q7" gate="G$1" pin="G"/>
+<pinref part="LED3RED" gate="G$1" pin="G"/>
 <wire x1="632.46" y1="-152.4" x2="632.46" y2="-162.56" width="0.1524" layer="91"/>
 <label x="632.46" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11886,7 +11886,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="579.12" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q8" gate="G$1" pin="G"/>
+<pinref part="LED3GREEN" gate="G$1" pin="G"/>
 <wire x1="642.62" y1="-152.4" x2="642.62" y2="-162.56" width="0.1524" layer="91"/>
 <label x="642.62" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11898,7 +11898,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="599.44" y="-43.18" size="0.6096" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q9" gate="G$1" pin="G"/>
+<pinref part="LED3BLUE" gate="G$1" pin="G"/>
 <wire x1="652.78" y1="-152.4" x2="652.78" y2="-162.56" width="0.1524" layer="91"/>
 <label x="652.78" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
@@ -11910,7 +11910,7 @@ Warning: This is the KIT version of this package. This package has a smaller dia
 <label x="568.96" y="-73.66" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q4" gate="G$1" pin="G"/>
+<pinref part="LED2RED" gate="G$1" pin="G"/>
 <wire x1="589.28" y1="-152.4" x2="589.28" y2="-162.56" width="0.1524" layer="91"/>
 <label x="589.28" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
