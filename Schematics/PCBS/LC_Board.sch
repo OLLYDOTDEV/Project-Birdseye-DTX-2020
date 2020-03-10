@@ -8696,43 +8696,43 @@ DIN A3, landscape with location and doc. field</description>
 <instance part="D3" gate="G$0" x="657.86" y="-132.08" smashed="yes" rot="R270">
 <attribute name="NAME" x="655.32" y="-132.08" size="2.54" layer="95" rot="R270" align="top-left"/>
 </instance>
-<instance part="LED1RED" gate="G$1" x="541.02" y="-154.94" smashed="yes" rot="R180">
-<attribute name="VALUE" x="535.94" y="-160.02" size="1.778" layer="96" rot="R180"/>
+<instance part="LED1RED" gate="G$1" x="541.02" y="-157.48" smashed="yes" rot="R180">
+<attribute name="VALUE" x="535.94" y="-162.56" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="LED1GREEN" gate="G$1" x="551.18" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED1BLUE" gate="G$1" x="561.34" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED2RED" gate="G$1" x="584.2" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED2GREEN" gate="G$1" x="594.36" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED2BLUE" gate="G$1" x="604.52" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED3RED" gate="G$1" x="627.38" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED3GREEN" gate="G$1" x="637.54" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="LED3BLUE" gate="G$1" x="647.7" y="-154.94" smashed="yes" rot="R180"/>
-<instance part="GND1" gate="1" x="541.02" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="538.48" y="-165.1" size="1.778" layer="96"/>
+<instance part="LED1GREEN" gate="G$1" x="551.18" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED1BLUE" gate="G$1" x="561.34" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED2RED" gate="G$1" x="584.2" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED2GREEN" gate="G$1" x="594.36" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED2BLUE" gate="G$1" x="604.52" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED3RED" gate="G$1" x="627.38" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED3GREEN" gate="G$1" x="637.54" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="LED3BLUE" gate="G$1" x="647.7" y="-157.48" smashed="yes" rot="R180"/>
+<instance part="GND1" gate="1" x="541.02" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="538.48" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND2" gate="1" x="551.18" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="548.64" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND2" gate="1" x="551.18" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="548.64" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND3" gate="1" x="561.34" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="558.8" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND3" gate="1" x="561.34" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="558.8" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND4" gate="1" x="584.2" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="581.66" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND4" gate="1" x="584.2" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="581.66" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND5" gate="1" x="594.36" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="591.82" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND5" gate="1" x="594.36" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="591.82" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND6" gate="1" x="604.52" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="601.98" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND6" gate="1" x="604.52" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="601.98" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND7" gate="1" x="627.38" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="624.84" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND7" gate="1" x="627.38" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="624.84" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND8" gate="1" x="637.54" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="635" y="-165.1" size="1.778" layer="96"/>
+<instance part="GND8" gate="1" x="637.54" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="635" y="-167.64" size="1.778" layer="96"/>
 </instance>
-<instance part="GND9" gate="1" x="647.7" y="-162.56" smashed="yes">
-<attribute name="VALUE" x="645.34" y="-165.04" size="1.778" layer="96"/>
+<instance part="GND9" gate="1" x="647.7" y="-165.1" smashed="yes">
+<attribute name="VALUE" x="645.34" y="-167.58" size="1.778" layer="96"/>
 </instance>
 <instance part="IC1" gate="G$1" x="546.1" y="-25.4" smashed="yes">
 <attribute name="NAME" x="593.09" y="10.16" size="1.778" layer="95" align="center-left"/>
@@ -8806,58 +8806,76 @@ DIN A3, landscape with location and doc. field</description>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
+<net name="RED1" class="0">
 <segment>
 <pinref part="D1" gate="G$0" pin="BLUE_CATHODE"/>
 <pinref part="LED1RED" gate="G$1" pin="S"/>
+<wire x1="541.02" y1="-152.4" x2="541.02" y2="-149.86" width="0.1524" layer="91"/>
+<label x="541.02" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="GREEN1" class="0">
 <segment>
 <pinref part="D1" gate="G$0" pin="GREEN_CATHODE"/>
 <pinref part="LED1GREEN" gate="G$1" pin="S"/>
+<wire x1="551.18" y1="-152.4" x2="551.18" y2="-149.86" width="0.1524" layer="91"/>
+<label x="551.18" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="BLUE1" class="0">
 <segment>
 <pinref part="D1" gate="G$0" pin="RED_CATHODE"/>
 <pinref part="LED1BLUE" gate="G$1" pin="S"/>
+<wire x1="561.34" y1="-152.4" x2="561.34" y2="-149.86" width="0.1524" layer="91"/>
+<label x="561.34" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="RED2" class="0">
 <segment>
 <pinref part="D2" gate="G$0" pin="BLUE_CATHODE"/>
 <pinref part="LED2RED" gate="G$1" pin="S"/>
+<wire x1="584.2" y1="-152.4" x2="584.2" y2="-149.86" width="0.1524" layer="91"/>
+<label x="584.2" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="GREEN2" class="0">
 <segment>
 <pinref part="D2" gate="G$0" pin="GREEN_CATHODE"/>
 <pinref part="LED2GREEN" gate="G$1" pin="S"/>
+<wire x1="594.36" y1="-152.4" x2="594.36" y2="-149.86" width="0.1524" layer="91"/>
+<label x="594.36" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="BLUE2" class="0">
 <segment>
 <pinref part="D2" gate="G$0" pin="RED_CATHODE"/>
 <pinref part="LED2BLUE" gate="G$1" pin="S"/>
+<wire x1="604.52" y1="-152.4" x2="604.52" y2="-149.86" width="0.1524" layer="91"/>
+<label x="604.52" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="RED3" class="0">
 <segment>
 <pinref part="D3" gate="G$0" pin="BLUE_CATHODE"/>
 <pinref part="LED3RED" gate="G$1" pin="S"/>
+<wire x1="627.38" y1="-152.4" x2="627.38" y2="-149.86" width="0.1524" layer="91"/>
+<label x="627.38" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="GREEN3" class="0">
 <segment>
 <pinref part="D3" gate="G$0" pin="GREEN_CATHODE"/>
 <pinref part="LED3GREEN" gate="G$1" pin="S"/>
+<wire x1="637.54" y1="-152.4" x2="637.54" y2="-149.86" width="0.1524" layer="91"/>
+<label x="637.54" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="BLUE3" class="0">
 <segment>
 <pinref part="D3" gate="G$0" pin="RED_CATHODE"/>
 <pinref part="LED3BLUE" gate="G$1" pin="S"/>
+<wire x1="647.7" y1="-152.4" x2="647.7" y2="-149.86" width="0.1524" layer="91"/>
+<label x="647.7" y="-152.4" size="0.8128" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="3.3V_RAIL" class="0">
@@ -9017,8 +9035,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED1RED" gate="G$1" pin="G"/>
-<wire x1="546.1" y1="-152.4" x2="546.1" y2="-162.56" width="0.1524" layer="91"/>
-<label x="546.1" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="546.1" y1="-154.94" x2="546.1" y2="-165.1" width="0.1524" layer="91"/>
+<label x="546.1" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D6" class="0">
@@ -9029,8 +9047,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED1GREEN" gate="G$1" pin="G"/>
-<wire x1="556.26" y1="-152.4" x2="556.26" y2="-162.56" width="0.1524" layer="91"/>
-<label x="556.26" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="556.26" y1="-154.94" x2="556.26" y2="-165.1" width="0.1524" layer="91"/>
+<label x="556.26" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D7" class="0">
@@ -9041,8 +9059,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED1BLUE" gate="G$1" pin="G"/>
-<wire x1="566.42" y1="-152.4" x2="566.42" y2="-162.56" width="0.1524" layer="91"/>
-<label x="566.42" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="566.42" y1="-154.94" x2="566.42" y2="-165.1" width="0.1524" layer="91"/>
+<label x="566.42" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D9" class="0">
@@ -9053,8 +9071,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED2GREEN" gate="G$1" pin="G"/>
-<wire x1="599.44" y1="-152.4" x2="599.44" y2="-162.56" width="0.1524" layer="91"/>
-<label x="599.44" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="599.44" y1="-154.94" x2="599.44" y2="-165.1" width="0.1524" layer="91"/>
+<label x="599.44" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D10" class="0">
@@ -9065,8 +9083,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED2BLUE" gate="G$1" pin="G"/>
-<wire x1="609.6" y1="-152.4" x2="609.6" y2="-162.56" width="0.1524" layer="91"/>
-<label x="609.6" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="609.6" y1="-154.94" x2="609.6" y2="-165.1" width="0.1524" layer="91"/>
+<label x="609.6" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D11" class="0">
@@ -9077,8 +9095,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED3RED" gate="G$1" pin="G"/>
-<wire x1="632.46" y1="-152.4" x2="632.46" y2="-162.56" width="0.1524" layer="91"/>
-<label x="632.46" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="632.46" y1="-154.94" x2="632.46" y2="-165.1" width="0.1524" layer="91"/>
+<label x="632.46" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D12" class="0">
@@ -9089,8 +9107,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED3GREEN" gate="G$1" pin="G"/>
-<wire x1="642.62" y1="-152.4" x2="642.62" y2="-162.56" width="0.1524" layer="91"/>
-<label x="642.62" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="642.62" y1="-154.94" x2="642.62" y2="-165.1" width="0.1524" layer="91"/>
+<label x="642.62" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D13" class="0">
@@ -9101,8 +9119,8 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED3BLUE" gate="G$1" pin="G"/>
-<wire x1="652.78" y1="-152.4" x2="652.78" y2="-162.56" width="0.1524" layer="91"/>
-<label x="652.78" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="652.78" y1="-154.94" x2="652.78" y2="-165.1" width="0.1524" layer="91"/>
+<label x="652.78" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="D8" class="0">
@@ -9113,11 +9131,11 @@ DIN A3, landscape with location and doc. field</description>
 </segment>
 <segment>
 <pinref part="LED2RED" gate="G$1" pin="G"/>
-<wire x1="589.28" y1="-152.4" x2="589.28" y2="-162.56" width="0.1524" layer="91"/>
-<label x="589.28" y="-162.56" size="1.6764" layer="95" rot="R270" xref="yes"/>
+<wire x1="589.28" y1="-154.94" x2="589.28" y2="-165.1" width="0.1524" layer="91"/>
+<label x="589.28" y="-165.1" size="1.6764" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
-<net name="N$15" class="0">
+<net name="RESET_LINE" class="0">
 <segment>
 <wire x1="568.96" y1="10.16" x2="568.96" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="568.96" y1="33.02" x2="568.96" y2="38.1" width="0.1524" layer="91"/>
@@ -9128,6 +9146,7 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="568.96" y1="33.02" x2="563.88" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="RESET_PULLUP" gate="G$1" pin="1"/>
+<label x="568.96" y="22.86" size="1.016" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="RXD_IN" class="0">
