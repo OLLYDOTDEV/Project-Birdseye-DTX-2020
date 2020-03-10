@@ -8677,8 +8677,8 @@ DIN A3, landscape with location and doc. field</description>
 <part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2" value="switching from 5v RDI to 3.3v RDI input"/>
 <part name="JP3" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
 <part name="CONVERTEPULLUP" library="audio amplifier example" library_urn="urn:adsk.eagle:library:970892" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:970938/2" value="10K"/>
-<part name="RESET_PULLUP" library="audio amplifier example" library_urn="urn:adsk.eagle:library:970892" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:970935/2" value="10K"/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
+<part name="RESET_PULLUP" library="audio amplifier example" library_urn="urn:adsk.eagle:library:970892" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:970938/2" value="10K"/>
 </parts>
 <sheets>
 <sheet>
@@ -8793,14 +8793,14 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="NAME" x="463.3214" y="-3.81" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="468.122" y="-6.35" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="RESET_PULLUP" gate="G$1" x="568.96" y="43.18" smashed="yes" rot="R90">
-<attribute name="NAME" x="567.4614" y="39.37" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="572.262" y="39.37" size="1.778" layer="96" rot="R90"/>
-</instance>
 <instance part="FRAME1" gate="G$1" x="381" y="-187.96" smashed="yes">
 <attribute name="DRAWING_NAME" x="725.17" y="-172.72" size="2.54" layer="94"/>
 <attribute name="LAST_DATE_TIME" x="725.17" y="-177.8" size="2.286" layer="94"/>
 <attribute name="SHEET" x="738.505" y="-182.88" size="2.54" layer="94"/>
+</instance>
+<instance part="RESET_PULLUP" gate="G$1" x="568.96" y="43.18" smashed="yes" rot="R90">
+<attribute name="NAME" x="567.4614" y="39.37" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="572.262" y="39.37" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
