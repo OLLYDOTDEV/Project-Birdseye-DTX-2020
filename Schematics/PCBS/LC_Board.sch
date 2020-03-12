@@ -4913,6 +4913,49 @@ diameter 5 mm, grid 2.54 mm</description>
 <rectangle x1="-1.651" y1="-0.127" x2="-0.889" y2="0.635" layer="51"/>
 <rectangle x1="0" y1="1.6002" x2="0.4318" y2="3.4798" layer="21"/>
 </package>
+<package name="1X03" urn="urn:adsk.eagle:footprint:6240064/1" library_version="2">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<wire x1="-3.175" y1="1.27" x2="-1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.635" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="0.635" x2="-3.81" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-3.175" y1="1.27" x2="-3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-3.81" y1="-0.635" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="-1.27" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.635" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="3.175" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="1.27" x2="3.81" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="0.635" x2="3.81" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="-0.635" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
+<pad name="1" x="-2.54" y="0" drill="1.016" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" rot="R90"/>
+<text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<rectangle x1="-2.794" y1="-0.254" x2="-2.286" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+</package>
+<package name="1X03-CLEANBIG" urn="urn:adsk.eagle:footprint:6240060/1" library_version="2">
+<pad name="1" x="-2.54" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.016" diameter="1.6764" rot="R90"/>
+<text x="-3.8862" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.81" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+<rectangle x1="-2.794" y1="-0.254" x2="-2.286" y2="0.254" layer="51"/>
+<rectangle x1="2.286" y1="-0.254" x2="2.794" y2="0.254" layer="51"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="CT3216" urn="urn:adsk.eagle:package:6240404/1" type="box" library_version="2">
@@ -5845,6 +5888,17 @@ diameter 5 mm, grid 2.54 mm</description>
 <packageinstance name="TT2D5L"/>
 </packageinstances>
 </package3d>
+<package3d name="1X03" urn="urn:adsk.eagle:package:6240710/1" type="box" library_version="2">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<packageinstances>
+<packageinstance name="1X03"/>
+</packageinstances>
+</package3d>
+<package3d name="1X03-CLEANBIG" urn="urn:adsk.eagle:package:6240706/1" type="box" library_version="2">
+<packageinstances>
+<packageinstance name="1X03-CLEANBIG"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="CPOL-US" urn="urn:adsk.eagle:symbol:6239481/1" library_version="2">
@@ -5858,6 +5912,17 @@ diameter 5 mm, grid 2.54 mm</description>
 <rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
 <pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="PINHD3" urn="urn:adsk.eagle:symbol:6239536/1" library_version="2">
+<wire x1="-6.35" y1="-5.08" x2="1.27" y2="-5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="-5.08" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
+<wire x1="-6.35" y1="5.08" x2="-6.35" y2="-5.08" width="0.4064" layer="94"/>
+<text x="-6.35" y="5.715" size="1.778" layer="95">&gt;NAME</text>
+<text x="-6.35" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
+<pin name="3" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -7441,6 +7506,40 @@ diameter 5 mm, grid 2.54 mm</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="PINHD-1X3" urn="urn:adsk.eagle:component:6241025/1" prefix="JP" uservalue="yes" library_version="2">
+<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="PINHD3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X03">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+<connect gate="A" pin="3" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:6240710/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="CB" package="1X03-CLEANBIG">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+<connect gate="A" pin="3" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:6240706/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="SparkFun-DiscreteSemi">
@@ -8674,11 +8773,11 @@ DIN A3, landscape with location and doc. field</description>
 <part name="E2" library="52101-101-REV-A" library_urn="urn:adsk.eagle:library:15662110" deviceset="DPADS_PAD" device="-0400-S" package3d_urn="urn:adsk.eagle:package:15662248/2"/>
 <part name="JP1" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X8" device="" package3d_urn="urn:adsk.eagle:package:22409/2" value="IO"/>
 <part name="C2" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="0.1UF" device="-0603-25V-(+80/-20%)" package3d_urn="urn:adsk.eagle:package:37414/1" value="0.1uF"/>
-<part name="JP2" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2" value="switching from 5v RDI to 3.3v RDI input"/>
 <part name="JP3" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
 <part name="CONVERTEPULLUP" library="audio amplifier example" library_urn="urn:adsk.eagle:library:970892" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:970938/2" value="10K"/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
 <part name="RESET_PULLUP" library="audio amplifier example" library_urn="urn:adsk.eagle:library:970892" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:970938/2" value="10K"/>
+<part name="SWITCHINGFROM5VRDITO3.3VRDIINPUT" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:6240710/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -8783,9 +8882,6 @@ DIN A3, landscape with location and doc. field</description>
 <attribute name="NAME" x="558.419" y="34.544" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="563.499" y="34.544" size="1.778" layer="96" font="vector" rot="R90"/>
 </instance>
-<instance part="JP2" gate="A" x="436.88" y="-2.54" smashed="yes" rot="R270">
-<attribute name="VALUE" x="448.31" y="-5.08" size="0.8128" layer="96" rot="R180"/>
-</instance>
 <instance part="JP3" gate="A" x="474.98" y="-2.54" smashed="yes" rot="R270">
 <attribute name="VALUE" x="467.36" y="3.81" size="1.778" layer="96" rot="R270"/>
 </instance>
@@ -8801,6 +8897,10 @@ DIN A3, landscape with location and doc. field</description>
 <instance part="RESET_PULLUP" gate="G$1" x="568.96" y="43.18" smashed="yes" rot="R90">
 <attribute name="NAME" x="567.4614" y="39.37" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="572.262" y="39.37" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="SWITCHINGFROM5VRDITO3.3VRDIINPUT" gate="A" x="436.88" y="-2.54" smashed="yes" rot="R270">
+<attribute name="NAME" x="442.595" y="3.81" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="429.26" y="3.81" size="1.778" layer="96" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -9154,7 +9254,7 @@ DIN A3, landscape with location and doc. field</description>
 <wire x1="447.04" y1="5.08" x2="439.42" y2="5.08" width="0.1524" layer="91"/>
 <pinref part="Q10" gate="NMOS" pin="D"/>
 <wire x1="439.42" y1="5.08" x2="439.42" y2="0" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="1"/>
+<pinref part="SWITCHINGFROM5VRDITO3.3VRDIINPUT" gate="A" pin="1"/>
 </segment>
 </net>
 <net name="5V_RAIL" class="0">
@@ -9202,10 +9302,10 @@ DIN A3, landscape with location and doc. field</description>
 <pinref part="JP1" gate="A" pin="6"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="A" pin="2"/>
 <wire x1="436.88" y1="5.08" x2="436.88" y2="0" width="0.1524" layer="91"/>
 <wire x1="431.8" y1="5.08" x2="436.88" y2="5.08" width="0.1524" layer="91"/>
 <label x="431.8" y="5.08" size="0.5588" layer="95" rot="R180" xref="yes"/>
+<pinref part="SWITCHINGFROM5VRDITO3.3VRDIINPUT" gate="A" pin="2"/>
 </segment>
 </net>
 <net name="RXI2" class="0">
@@ -9235,12 +9335,12 @@ DIN A3, landscape with location and doc. field</description>
 </net>
 <net name="RDI_3.3V" class="0">
 <segment>
-<pinref part="JP2" gate="A" pin="3"/>
 <wire x1="434.34" y1="7.62" x2="434.34" y2="0" width="0.1524" layer="91"/>
 <wire x1="434.34" y1="7.62" x2="477.52" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="JP3" gate="A" pin="1"/>
 <wire x1="477.52" y1="7.62" x2="477.52" y2="0" width="0.1524" layer="91"/>
 <label x="434.34" y="7.62" size="0.8128" layer="95"/>
+<pinref part="SWITCHINGFROM5VRDITO3.3VRDIINPUT" gate="A" pin="3"/>
 </segment>
 </net>
 </nets>
