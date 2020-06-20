@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.5.2">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -621,6 +621,48 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 <pad name="6" x="8.75" y="0" drill="1" diameter="2.1844"/>
 <text x="7.87" y="-5.81" size="1.27" layer="25" rot="R180">&gt;NAME</text>
 </package>
+<package name="0805-THM" urn="urn:adsk.eagle:footprint:6240080/1" library_version="2">
+<wire x1="5.08" y1="0" x2="4.064" y2="0" width="0.6096" layer="51"/>
+<wire x1="-5.08" y1="0" x2="-4.064" y2="0" width="0.6096" layer="51"/>
+<wire x1="-3.175" y1="0.889" x2="-2.921" y2="1.143" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.175" y1="-0.889" x2="-2.921" y2="-1.143" width="0.1524" layer="21" curve="90"/>
+<wire x1="2.921" y1="-1.143" x2="3.175" y2="-0.889" width="0.1524" layer="21" curve="90"/>
+<wire x1="2.921" y1="1.143" x2="3.175" y2="0.889" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.175" y1="-0.889" x2="-3.175" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="-2.921" y1="1.143" x2="-2.54" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="-2.413" y1="1.016" x2="-2.54" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="-2.921" y1="-1.143" x2="-2.54" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="-2.413" y1="-1.016" x2="-2.54" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="2.413" y1="1.016" x2="2.54" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="2.413" y1="1.016" x2="-2.413" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="2.413" y1="-1.016" x2="2.54" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="2.413" y1="-1.016" x2="-2.413" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="2.921" y1="1.143" x2="2.54" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="2.921" y1="-1.143" x2="2.54" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="-0.889" x2="3.175" y2="0.889" width="0.1524" layer="21"/>
+<wire x1="-0.41" y1="0.635" x2="0.41" y2="0.635" width="0.1524" layer="51"/>
+<wire x1="-0.41" y1="-0.635" x2="0.41" y2="-0.635" width="0.1524" layer="51"/>
+<wire x1="-1.973" y1="0.983" x2="1.973" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="1.973" y1="0.983" x2="1.973" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="1.973" y1="-0.983" x2="-1.973" y2="-0.983" width="0.0508" layer="39"/>
+<wire x1="-1.973" y1="-0.983" x2="-1.973" y2="0.983" width="0.0508" layer="39"/>
+<wire x1="-4.5" y1="0" x2="-1.1" y2="0" width="0.3048" layer="1"/>
+<wire x1="1" y1="0" x2="5.1" y2="0" width="0.3048" layer="1"/>
+<pad name="1" x="-5.08" y="0" drill="0.8128" diameter="1.6764" shape="octagon"/>
+<pad name="2" x="5.08" y="0" drill="0.8128" diameter="1.6764" shape="octagon"/>
+<text x="-3.048" y="1.524" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-3.1306" y="-2.775" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="3.175" y1="-0.3048" x2="4.0386" y2="0.3048" layer="21"/>
+<rectangle x1="-4.0386" y1="-0.3048" x2="-3.175" y2="0.3048" layer="21"/>
+<rectangle x1="0.4064" y1="-0.6985" x2="1.0564" y2="0.7015" layer="21"/>
+<rectangle x1="-1.0668" y1="-0.6985" x2="-0.4168" y2="0.7015" layer="21"/>
+<rectangle x1="-1.6254" y1="-0.7" x2="-0.4254" y2="0.7" layer="1"/>
+<rectangle x1="0.4254" y1="-0.7" x2="1.6254" y2="0.7" layer="1"/>
+<rectangle x1="-1.7254" y1="-0.8" x2="-0.3254" y2="0.8" layer="29"/>
+<rectangle x1="0.3254" y1="-0.8" x2="1.7254" y2="0.8" layer="29"/>
+<rectangle x1="-1.6254" y1="-0.7" x2="-0.4254" y2="0.7" layer="31"/>
+<rectangle x1="0.4254" y1="-0.7" x2="1.6254" y2="0.7" layer="31"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="1X06" urn="urn:adsk.eagle:package:6240711/1" type="box" library_version="2">
@@ -654,6 +696,11 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 <packageinstance name="1X06-3.5MM"/>
 </packageinstances>
 </package3d>
+<package3d name="0805-THM" urn="urn:adsk.eagle:package:6240726/1" type="box" library_version="2">
+<packageinstances>
+<packageinstance name="0805-THM"/>
+</packageinstances>
+</package3d>
 </packages3d>
 <symbols>
 <symbol name="PINHD6" urn="urn:adsk.eagle:symbol:6239537/1" library_version="2">
@@ -669,6 +716,21 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 <pin name="4" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="5" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="6" x="-2.54" y="-5.08" visible="pad" length="short" direction="pas" function="dot"/>
+</symbol>
+<symbol name="R-US" urn="urn:adsk.eagle:symbol:6239479/1" library_version="2">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.2032" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.2032" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.2032" layer="94"/>
+<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -776,6 +838,61 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 </device>
 </devices>
 </deviceset>
+<deviceset name="FLIPFLOP-RES" urn="urn:adsk.eagle:component:6241036/1" prefix="R" uservalue="yes" library_version="2">
+<description>&lt;B&gt;Flip Flop resistor&lt;/b&gt;
+&lt;p&gt;
+An 0805 resistor inside a standard 1/4W 5% resistor. Makes for easy mods</description>
+<gates>
+<gate name="G$1" symbol="R-US" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805-THM">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:6240726/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="supply1" urn="urn:adsk.eagle:library:371">
+<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
+ GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
+ Please keep in mind, that these devices are necessary for the
+ automatic wiring of the supply signals.&lt;p&gt;
+ The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
+ In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
+ &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="GND" urn="urn:adsk.eagle:symbol:26925/1" library_version="1">
+<wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="GND" urn="urn:adsk.eagle:component:26954/1" prefix="GND" library_version="1">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="GND" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -799,7 +916,13 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 </part>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A3L-LOC" device=""/>
 <part name="IC1" library="STP16C596M" deviceset="STP16C596M" device=""/>
-<part name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X6" device="CLEAN" package3d_urn="urn:adsk.eagle:package:6240712/1"/>
+<part name="IO" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X6" device="CLEAN" package3d_urn="urn:adsk.eagle:package:6240712/1"/>
+<part name="R1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="FLIPFLOP-RES" device="" package3d_urn="urn:adsk.eagle:package:6240726/1" value="2K"/>
+<part name="R2" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="FLIPFLOP-RES" device="" package3d_urn="urn:adsk.eagle:package:6240726/1" value="3K"/>
+<part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -821,12 +944,31 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 <attribute name="SHEET" x="738.505" y="-182.88" size="2.54" layer="94"/>
 </instance>
 <instance part="IC1" gate="G$1" x="510.54" y="10.16" smashed="yes">
-<attribute name="NAME" x="537.21" y="17.78" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="537.21" y="15.24" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="JP1" gate="A" x="513.08" y="40.64" smashed="yes" rot="R180">
+<instance part="IO" gate="A" x="513.08" y="40.64" smashed="yes" rot="R180">
 <attribute name="NAME" x="519.43" y="29.845" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="519.43" y="50.8" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="R1" gate="G$1" x="566.42" y="45.72" smashed="yes">
+<attribute name="NAME" x="562.61" y="47.2186" size="1.778" layer="95"/>
+<attribute name="VALUE" x="562.61" y="42.418" size="1.778" layer="96"/>
+</instance>
+<instance part="R2" gate="G$1" x="581.66" y="45.72" smashed="yes" rot="R180">
+<attribute name="NAME" x="585.47" y="44.2214" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="585.47" y="49.022" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND1" gate="1" x="528.32" y="43.18" smashed="yes" rot="R90">
+<attribute name="VALUE" x="530.86" y="40.64" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="GND2" gate="1" x="591.82" y="45.72" smashed="yes" rot="R90">
+<attribute name="VALUE" x="594.36" y="43.18" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="GND3" gate="1" x="508" y="12.7" smashed="yes" rot="R180">
+<attribute name="VALUE" x="510.54" y="15.24" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND4" gate="1" x="546.1" y="2.54" smashed="yes" rot="R90">
+<attribute name="VALUE" x="548.64" y="0" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -843,45 +985,94 @@ Source: &lt;a href="https://ms.componentsearchengine.com/Datasheets/1/STP16C596M
 <wire x1="566.42" y1="-40.64" x2="566.42" y2="-35.56" width="0.1524" layer="91"/>
 <label x="566.42" y="-35.56" size="1.6764" layer="95" rot="R90" xref="yes"/>
 </segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="2"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="571.5" y1="45.72" x2="574.04" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="45.72" x2="576.58" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="574.04" y1="45.72" x2="574.04" y2="40.64" width="0.1524" layer="91"/>
+<junction x="574.04" y="45.72"/>
+<label x="574.04" y="40.64" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="GND" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="5"/>
-<wire x1="515.62" y1="43.18" x2="520.7" y2="43.18" width="0.1524" layer="91"/>
-<label x="520.7" y="43.18" size="0.6096" layer="95" xref="yes"/>
+<pinref part="IO" gate="A" pin="5"/>
+<wire x1="515.62" y1="43.18" x2="525.78" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="586.74" y1="45.72" x2="589.28" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="GND"/>
+<wire x1="510.54" y1="10.16" x2="508" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="!OE"/>
+<wire x1="541.02" y1="2.54" x2="543.56" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="GND4" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="5V_RAIL" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="6"/>
+<pinref part="IO" gate="A" pin="6"/>
 <wire x1="515.62" y1="45.72" x2="520.7" y2="45.72" width="0.1524" layer="91"/>
 <label x="520.7" y="45.72" size="0.6096" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<wire x1="561.34" y1="45.72" x2="558.8" y2="45.72" width="0.1524" layer="91"/>
+<label x="558.8" y="45.72" size="1.016" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="VDD"/>
+<wire x1="541.02" y1="10.16" x2="543.56" y2="10.16" width="0.1524" layer="91"/>
+<label x="543.56" y="10.16" size="0.6096" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="DATA_PIN" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="4"/>
+<pinref part="IO" gate="A" pin="4"/>
 <wire x1="515.62" y1="40.64" x2="520.7" y2="40.64" width="0.1524" layer="91"/>
 <label x="520.7" y="40.64" size="0.6096" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="SDI"/>
+<wire x1="510.54" y1="7.62" x2="508" y2="7.62" width="0.1524" layer="91"/>
+<label x="508" y="7.62" size="0.6096" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="LATCH_PIN" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="3"/>
-<wire x1="515.62" y1="38.1" x2="520.7" y2="38.1" width="0.1524" layer="91"/>
-<label x="520.7" y="38.1" size="0.6096" layer="95" xref="yes"/>
+<pinref part="IC1" gate="G$1" pin="LE"/>
+<wire x1="510.54" y1="2.54" x2="508" y2="2.54" width="0.1524" layer="91"/>
+<label x="508" y="2.54" size="0.6096" layer="95" rot="R180" xref="yes"/>
 </segment>
-</net>
-<net name="CLOCK_PIN" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="IO" gate="A" pin="2"/>
 <wire x1="515.62" y1="35.56" x2="520.7" y2="35.56" width="0.1524" layer="91"/>
 <label x="520.7" y="35.56" size="0.6096" layer="95" xref="yes"/>
 </segment>
 </net>
+<net name="CLOCK_PIN" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="CLK"/>
+<wire x1="510.54" y1="5.08" x2="508" y2="5.08" width="0.1524" layer="91"/>
+<label x="508" y="5.08" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IO" gate="A" pin="3"/>
+<wire x1="515.62" y1="38.1" x2="520.7" y2="38.1" width="0.1524" layer="91"/>
+<label x="520.7" y="38.1" size="0.6096" layer="95" xref="yes"/>
+</segment>
+</net>
 <net name="2TD" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="1"/>
+<pinref part="IO" gate="A" pin="1"/>
 <wire x1="515.62" y1="33.02" x2="520.7" y2="33.02" width="0.1524" layer="91"/>
 <label x="520.7" y="33.02" size="0.6096" layer="95" xref="yes"/>
 </segment>
