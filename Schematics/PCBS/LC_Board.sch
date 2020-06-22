@@ -1077,6 +1077,114 @@ An 0805 resistor inside a standard 1/4W 5% resistor. Makes for easy mods</descri
 <label x="520.7" y="33.02" size="0.6096" layer="95" xref="yes"/>
 </segment>
 </net>
+<net name="OUT0" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT0"/>
+<wire x1="510.54" y1="0" x2="508" y2="0" width="0.1524" layer="91"/>
+<label x="508" y="0" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="D1" gate="G$0" pin="BLUE_CATHODE"/>
+<wire x1="513.08" y1="-63.5" x2="513.08" y2="-66.04" width="0.1524" layer="91"/>
+<label x="513.08" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="OUT1" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT1"/>
+<wire x1="510.54" y1="-2.54" x2="508" y2="-2.54" width="0.1524" layer="91"/>
+<label x="508" y="-2.54" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="D1" gate="G$0" pin="GREEN_CATHODE"/>
+<wire x1="523.24" y1="-63.5" x2="523.24" y2="-66.04" width="0.1524" layer="91"/>
+<label x="523.24" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="OUT2" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT2"/>
+<wire x1="510.54" y1="-5.08" x2="508" y2="-5.08" width="0.1524" layer="91"/>
+<label x="508" y="-5.08" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="D1" gate="G$0" pin="RED_CATHODE"/>
+<wire x1="533.4" y1="-63.5" x2="533.4" y2="-66.04" width="0.1524" layer="91"/>
+<label x="533.4" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="OUT3" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT3"/>
+<wire x1="510.54" y1="-7.62" x2="508" y2="-7.62" width="0.1524" layer="91"/>
+<label x="508" y="-7.62" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="D2" gate="G$0" pin="BLUE_CATHODE"/>
+<wire x1="556.26" y1="-63.5" x2="556.26" y2="-66.04" width="0.1524" layer="91"/>
+<label x="556.26" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="OUT4" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT4"/>
+<wire x1="510.54" y1="-10.16" x2="508" y2="-10.16" width="0.1524" layer="91"/>
+<label x="508" y="-10.16" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="D2" gate="G$0" pin="GREEN_CATHODE"/>
+<wire x1="566.42" y1="-63.5" x2="566.42" y2="-66.04" width="0.1524" layer="91"/>
+<label x="566.42" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+</net>
+<net name="OUT5" class="0">
+<segment>
+<pinref part="D2" gate="G$0" pin="RED_CATHODE"/>
+<wire x1="576.58" y1="-63.5" x2="576.58" y2="-66.04" width="0.1524" layer="91"/>
+<label x="576.58" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT5"/>
+<wire x1="510.54" y1="-12.7" x2="508" y2="-12.7" width="0.1524" layer="91"/>
+<label x="508" y="-12.7" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="OUT7" class="0">
+<segment>
+<pinref part="D3" gate="G$0" pin="GREEN_CATHODE"/>
+<wire x1="609.6" y1="-63.5" x2="609.6" y2="-66.04" width="0.1524" layer="91"/>
+<label x="609.6" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT7"/>
+<wire x1="510.54" y1="-17.78" x2="508" y2="-17.78" width="0.1524" layer="91"/>
+<label x="508" y="-17.78" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
+<net name="OUT8" class="0">
+<segment>
+<pinref part="D3" gate="G$0" pin="RED_CATHODE"/>
+<wire x1="619.76" y1="-63.5" x2="619.76" y2="-66.04" width="0.1524" layer="91"/>
+<label x="619.76" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT8"/>
+<wire x1="541.02" y1="-17.78" x2="543.56" y2="-17.78" width="0.1524" layer="91"/>
+<label x="543.56" y="-17.78" size="0.6096" layer="95" xref="yes"/>
+</segment>
+</net>
+<net name="OUT6" class="0">
+<segment>
+<pinref part="D3" gate="G$0" pin="BLUE_CATHODE"/>
+<wire x1="599.44" y1="-63.5" x2="599.44" y2="-66.04" width="0.1524" layer="91"/>
+<label x="599.44" y="-66.04" size="0.6096" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="OUT6"/>
+<wire x1="510.54" y1="-15.24" x2="508" y2="-15.24" width="0.1524" layer="91"/>
+<label x="508" y="-15.24" size="0.6096" layer="95" rot="R180" xref="yes"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
