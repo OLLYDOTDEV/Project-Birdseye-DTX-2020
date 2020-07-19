@@ -5311,6 +5311,11 @@ type 0207, grid 10 mm</description>
 <wire x1="-12.7" y1="109.22" x2="-7.62" y2="109.22" width="0.1524" layer="91"/>
 <label x="-7.62" y="109.22" size="0.762" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PC3_[PCINT11]"/>
+<wire x1="81.28" y1="83.82" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
+<label x="81.28" y="86.36" size="0.762" layer="95" rot="R90" xref="yes"/>
+</segment>
 </net>
 </nets>
 </sheet>
