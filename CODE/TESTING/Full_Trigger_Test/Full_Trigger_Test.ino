@@ -7,7 +7,7 @@ INFO:
 > test to settting a triggered state alert.
 
 */
-
+#include "Smooth.h"
 
 // IR variables
 bool IR_status = 0;
