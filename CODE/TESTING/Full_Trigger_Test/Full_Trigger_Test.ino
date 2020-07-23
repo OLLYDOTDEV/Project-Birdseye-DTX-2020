@@ -24,8 +24,6 @@ int calibration_trigger = 1; // 1 = calibration mode on | 0 = calibration mode o
 
 
 
-
-
 AnalogSmooth IRsensor; // contruct an object with the smooth class
 void setup() 
 {
@@ -41,9 +39,6 @@ delay(1000);
 
 void loop()
 {
-
-
-
 Serial.println("\n\n\n ________________________");
 
 

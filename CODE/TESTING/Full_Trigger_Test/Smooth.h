@@ -26,7 +26,7 @@ class AnalogSmooth {
     #define _numReadings 8        // Used to give amount to data to keep a average of
     int _readings[_numReadings];      // the readings from the analog input
     int _readIndex = 0;              // the index of the current reading
-    int _total = 0;                  // the running total
+    int _total = 900;                  // the running total
     int _average = 0;                // the average
   public:
     void Smooth_setup();
