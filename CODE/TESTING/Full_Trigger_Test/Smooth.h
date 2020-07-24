@@ -24,8 +24,6 @@
 class AnalogSmooth {
   private:
     #define _numReadings 8          // Used to give amount to data to keep a average of
-    int _ValuecCount = 0;           // count first amount of values while less then StartSkip
-    int _StartSkip = 11;            // amount for ^^^ to skip
     int _readings[_numReadings];    // the readings from the analog input
     int _readIndex = 0;             // the index of the current reading
     int _total = 0;                 // the running total
@@ -63,15 +61,7 @@ int AnalogSmooth::Smooth(int Sinputpin) {
 
 
 
-if(_ValuecCount < _StartSkip){
 
- Serial.print("Skipping start value number:");
- Serial.println(_ValuecCount);
- _ValuecCount++;
- // give temp output value of first reading
-  return(_readings[0]);
-}else{
   // return value of object
   return(_average);
   }
-}

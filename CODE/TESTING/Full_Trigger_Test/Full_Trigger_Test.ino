@@ -8,19 +8,21 @@ INFO:
 
 */
 #include "Smooth.h"
-
-// IR variables
-bool IR_Status = 0;
-int IR_DATA = 0 ;
-int IR_Threshold = 600 ;
-int IR_OUT = A3; // connect ir sensor to arduino pin 2
-// PIR variables
-bool Pir_Status = 0;
-bool Pir_Data = 0;
-int Pir_Out = 4;
-// general variables 
-bool Alert_Status = 0;
-int calibration_trigger = 1; // 1 = calibration mode on | 0 = calibration mode off
+  // count variable 
+    int _ValuecCount = 0;           // count first amount of values while less then StartSkip
+    int _StartSkip = 11;            // amount for ^^^ to skip
+  // IR variables
+  bool IR_Status = 0;
+  int IR_DATA = 1000 ;
+  int IR_Threshold = 600 ;
+  int IR_OUT = A3; // connect ir sensor to arduino pin 2
+  // PIR variables
+  bool Pir_Status = 0;
+  bool Pir_Data = 0;
+  int Pir_Out = 4;
+  // general variables 
+  bool Alert_Status = 0;
+  int calibration_trigger = 1; // 1 = calibration mode on | 0 = calibration mode off
 
 
 
@@ -44,7 +46,20 @@ Serial.println("\n\n\n ________________________");
 
 
 // IR code 
+
+
+if(_ValuecCount < _StartSkip){
+  IRsensor.Smooth(IR_OUT);
+ Serial.print("Skipping start value number:");
+ Serial.println(_ValuecCount);
+ _ValuecCount++;
+}else{
 IR_DATA = IRsensor.Smooth(IR_OUT);
+  
+}
+
+
+
 
 if(IR_DATA < IR_Threshold){
 // if this if statement activates that means that the sensor has been triggered  
