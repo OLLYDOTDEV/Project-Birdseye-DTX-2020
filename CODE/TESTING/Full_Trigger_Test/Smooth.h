@@ -23,29 +23,31 @@
 
 class AnalogSmooth {
   private:
-    #define _numReadings 8        // Used to give amount to data to keep a average of
-    int _readings[_numReadings];      // the readings from the analog input
-    int _readIndex = 0;              // the index of the current reading
-    int _total = 900;                  // the running total
-    int _average = 0;                // the average
+    #define _numReadings 8          // Used to give amount to data to keep a average of
+    int _ValuecCount = 0;           // count first amount of values while less then StartSkip
+    int _StartSkip = 11;            // amount for ^^^ to skip
+    int _readings[_numReadings];    // the readings from the analog input
+    int _readIndex = 0;             // the index of the current reading
+    int _total = 0;                 // the running total
+    int _average = 0;               // the average
   public:
     void Smooth_setup();
-    int Smooth(int inputpin);
-    int inputpin;                  // Input
+    int Smooth(int Sinputpin);
+    int Sinputpin;                  // Input
 };
 
 void AnalogSmooth::Smooth_setup(){
      for (int thisReading = 0; thisReading < _numReadings; thisReading++) {
-     _readings[thisReading] = 0; // sets all array 
+     _readings[thisReading] = 0; // sets all array 0
      }
 }
 
-int AnalogSmooth::Smooth(int inputpin) {
+int AnalogSmooth::Smooth(int Sinputpin) {
  
   // subtract the last reading:
   _total = _total - _readings[_readIndex];
   // read from the sensor:
-  _readings[_readIndex] = analogRead(inputpin);
+  _readings[_readIndex] = analogRead(Sinputpin);
   // add the reading to the total:
   _total = _total + _readings[_readIndex];
   // advance to the next position in the array:
@@ -56,9 +58,20 @@ int AnalogSmooth::Smooth(int inputpin) {
     // ...wrap around to the beginning:
     _readIndex = 0;
   }
-
-  // calculate the average:
   _average = _total / _numReadings;
+
+
+
+
+if(_ValuecCount < _StartSkip){
+
+ Serial.print("Skipping start value number:");
+ Serial.println(_ValuecCount);
+ _ValuecCount++;
+  return(_average);
+}else{
+
   // send it to the computer as ASCII digits
   return(_average);
+  }
 }

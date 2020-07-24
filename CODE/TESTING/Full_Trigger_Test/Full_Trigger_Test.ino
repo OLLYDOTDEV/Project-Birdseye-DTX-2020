@@ -72,20 +72,10 @@ Alert_Status = 0;
 }
 
 
-// value debug
-Serial.println("\n");
-Serial.print("IR Data: ");
-Serial.println(IR_DATA);
-Serial.print("PIR Data: ");
-Serial.println(Pir_Data);
-// alert debug
-Serial.println("\n");
-Serial.print("IR Status: ");
-Serial.println(IR_Status);
-Serial.print("PIR Status: ");
-Serial.println(Pir_Status);
-Serial.print("\nAlert_Status: ");
-Serial.println(Alert_Status);
+
+
+ valuedebug();
+ alertdebug();
 
 
 
@@ -94,6 +84,34 @@ Serial.println(Alert_Status);
 
 
 delay(600);
+}
 
 
+
+
+
+
+
+
+
+// ----------------------------------------------------------------- //
+
+// debug functions 
+void valuedebug(){ 
+  // value debug
+Serial.println("\n");
+Serial.print("IR Data: ");
+Serial.println(IR_DATA);
+Serial.print("PIR Data: ");
+Serial.println(Pir_Data);
+}
+void alertdebug(){
+// alert debug
+Serial.println("\n");
+Serial.print("IR Status: ");
+Serial.println(IR_Status);
+Serial.print("PIR Status: ");
+Serial.println(Pir_Status);
+Serial.print("\nAlert_Status: ");
+Serial.println(Alert_Status);
 }
