@@ -68,10 +68,10 @@ if(_ValuecCount < _StartSkip){
  Serial.print("Skipping start value number:");
  Serial.println(_ValuecCount);
  _ValuecCount++;
-  return(_average);
+ // give temp output value of first reading
+  return(_readings[0]);
 }else{
-
-  // send it to the computer as ASCII digits
+  // return value of object
   return(_average);
   }
 }

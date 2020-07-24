@@ -77,12 +77,6 @@ Alert_Status = 0;
  valuedebug();
  alertdebug();
 
-
-
-
-
-
-
 delay(600);
 }
 
