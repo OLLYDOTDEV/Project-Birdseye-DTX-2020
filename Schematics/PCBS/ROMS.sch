@@ -5237,6 +5237,11 @@ type 0207, grid 10 mm</description>
 <wire x1="-12.7" y1="154.94" x2="-7.62" y2="154.94" width="0.1524" layer="91"/>
 <label x="-7.62" y="154.94" size="0.762" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB1_[PCINT1]"/>
+<wire x1="76.2" y1="2.54" x2="76.2" y2="0" width="0.1524" layer="91"/>
+<label x="76.2" y="0" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="CLOCK_PIN" class="0">
 <segment>
@@ -5244,12 +5249,22 @@ type 0207, grid 10 mm</description>
 <wire x1="-12.7" y1="157.48" x2="-7.62" y2="157.48" width="0.1524" layer="91"/>
 <label x="-7.62" y="157.48" size="0.762" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PB0_[PCINT0]"/>
+<wire x1="73.66" y1="2.54" x2="73.66" y2="0" width="0.1524" layer="91"/>
+<label x="73.66" y="0" size="1.016" layer="95" rot="R270" xref="yes"/>
+</segment>
 </net>
 <net name="DATA_PIN" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="4"/>
 <wire x1="-12.7" y1="160.02" x2="-7.62" y2="160.02" width="0.1524" layer="91"/>
 <label x="-7.62" y="160.02" size="0.762" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="PD7_[PCINT23]"/>
+<wire x1="71.12" y1="2.54" x2="71.12" y2="0" width="0.1524" layer="91"/>
+<label x="71.12" y="0" size="1.016" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="PIR_OUT" class="0">
