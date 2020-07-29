@@ -3859,6 +3859,28 @@ type 0309, grid 2.5 mm</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="FLIPFLOP-RES" urn="urn:adsk.eagle:component:6241036/1" prefix="R" uservalue="yes" library_version="2">
+<description>&lt;B&gt;Flip Flop resistor&lt;/b&gt;
+&lt;p&gt;
+An 0805 resistor inside a standard 1/4W 5% resistor. Makes for easy mods</description>
+<gates>
+<gate name="G$1" symbol="R-US" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805-THM">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:6240726/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="SparkFun-Connectors">
@@ -4911,92 +4933,6 @@ Comments, suggestions and bug reports please send to: &lt;b&gt;&lt;a href="mailt
 </deviceset>
 </devicesets>
 </library>
-<library name="Seeed-Resistor-2016">
-<packages>
-<package name="PR-D2.3XL6.5MM">
-<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
-type 0207, grid 10 mm</description>
-<wire x1="5.207" y1="0" x2="4.191" y2="0" width="0.6096" layer="51"/>
-<wire x1="-4.953" y1="0" x2="-3.937" y2="0" width="0.6096" layer="51"/>
-<wire x1="-3.048" y1="0.889" x2="-2.794" y2="1.143" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-3.048" y1="-0.889" x2="-2.794" y2="-1.143" width="0.1524" layer="21" curve="90"/>
-<wire x1="3.048" y1="-1.143" x2="3.302" y2="-0.889" width="0.1524" layer="21" curve="90"/>
-<wire x1="3.048" y1="1.143" x2="3.302" y2="0.889" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-3.048" y1="-0.889" x2="-3.048" y2="0.889" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="1.143" x2="-2.413" y2="1.143" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="1.016" x2="-2.413" y2="1.143" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="-1.143" x2="-2.413" y2="-1.143" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="-1.016" x2="-2.413" y2="-1.143" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="1.016" x2="2.667" y2="1.143" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="1.016" x2="-2.286" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="-1.016" x2="2.667" y2="-1.143" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="-1.016" x2="-2.286" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="1.143" x2="2.667" y2="1.143" width="0.1524" layer="21"/>
-<wire x1="3.048" y1="-1.143" x2="2.667" y2="-1.143" width="0.1524" layer="21"/>
-<wire x1="3.302" y1="-0.889" x2="3.302" y2="0.889" width="0.1524" layer="21"/>
-<pad name="1" x="-4.953" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="5.207" y="0" drill="0.8128" shape="octagon"/>
-<text x="-2.413" y="1.397" size="0.889" layer="25" ratio="11">&gt;NAME</text>
-<text x="-2.413" y="-2.921" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
-<rectangle x1="3.302" y1="-0.3048" x2="4.1656" y2="0.3048" layer="21"/>
-<rectangle x1="-3.9116" y1="-0.3048" x2="-3.048" y2="0.3048" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="RES">
-<wire x1="-1.27" y1="0.508" x2="1.27" y2="0.508" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0.508" x2="1.27" y2="-0.508" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-0.508" x2="-1.27" y2="-0.508" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="-0.508" x2="-1.27" y2="0.508" width="0.254" layer="94"/>
-<text x="-3.81" y="1.27" size="1.27" layer="95" ratio="10">&gt;NAME</text>
-<text x="-3.81" y="-2.54" size="1.27" layer="96" ratio="10">&gt;VALUE</text>
-<pin name="1" x="-3.81" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<pin name="2" x="3.81" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="DIP-RES-2.2K-5%-1/4W(PR-D2.3XL6.5MM)" prefix="R" uservalue="yes">
-<description>301020010</description>
-<gates>
-<gate name="G$1" symbol="RES" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="PR-D2.3XL6.5MM">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MPN" value="FHCFR-1/4W-222J" constant="no"/>
-<attribute name="VALUE" value="2.2K"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="DIP-RES-3.3K-5%-1/4W(PR-D2.3XL6.5MM)" prefix="R" uservalue="yes">
-<description>301020042</description>
-<gates>
-<gate name="G$1" symbol="RES" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="PR-D2.3XL6.5MM">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MPN" value="FHCFR-1/4W-332J" constant="no"/>
-<attribute name="VALUE" value="3.3K"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5020,8 +4956,6 @@ type 0207, grid 10 mm</description>
 <part name="J1" library="SparkFun-Connectors" deviceset="CONN_02" device=""/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="M1" library="diy-modules" deviceset="WIRELESS-NRF24L01-PA-EXT" device=""/>
-<part name="R2" library="Seeed-Resistor-2016" deviceset="DIP-RES-2.2K-5%-1/4W(PR-D2.3XL6.5MM)" device="" value="2.2K"/>
-<part name="R3" library="Seeed-Resistor-2016" deviceset="DIP-RES-3.3K-5%-1/4W(PR-D2.3XL6.5MM)" device="" value="3.3K"/>
 <part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="JP1" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X6" device="" package3d_urn="urn:adsk.eagle:package:6240711/1" value="IO_LINK_LED"/>
 <part name="JP2" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:6240710/1" value="PIR_IO"/>
@@ -5029,13 +4963,14 @@ type 0207, grid 10 mm</description>
 <part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="R2" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="FLIPFLOP-RES" device="" package3d_urn="urn:adsk.eagle:package:6240726/1" value="2.2K"/>
+<part name="R3" library="adafruit" library_urn="urn:adsk.eagle:library:420" deviceset="FLIPFLOP-RES" device="" package3d_urn="urn:adsk.eagle:package:6240726/1" value="3.3K"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="46.99" y="110.49" size="1.778" layer="91">Reset Pin Headers</text>
 <text x="142.24" y="50.8" size="0.6096" layer="91">Mosfet so measure battery voltage</text>
-<text x="138.43" y="20.32" size="0.6096" layer="91">3.3 logic out ???</text>
 </plain>
 <instances>
 <instance part="IC1" gate="G$1" x="50.8" y="48.26" smashed="yes">
@@ -5079,20 +5014,12 @@ type 0207, grid 10 mm</description>
 <instance part="GND6" gate="1" x="67.31" y="104.14" smashed="yes" rot="R90">
 <attribute name="VALUE" x="69.85" y="101.6" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="M1" gate="G$1" x="186.69" y="12.7" smashed="yes">
-<attribute name="NAME" x="207.01" y="22.86" size="1.778" layer="95"/>
-<attribute name="VALUE" x="207.01" y="20.32" size="1.778" layer="96"/>
+<instance part="M1" gate="G$1" x="217.17" y="-45.72" smashed="yes">
+<attribute name="NAME" x="237.49" y="-35.56" size="1.778" layer="95"/>
+<attribute name="VALUE" x="237.49" y="-38.1" size="1.778" layer="96"/>
 </instance>
-<instance part="R2" gate="G$1" x="133.35" y="27.94" smashed="yes" rot="R90">
-<attribute name="NAME" x="132.08" y="24.13" size="1.27" layer="95" ratio="10" rot="R90"/>
-<attribute name="VALUE" x="135.89" y="24.13" size="1.27" layer="96" ratio="10" rot="R90"/>
-</instance>
-<instance part="R3" gate="G$1" x="133.35" y="12.7" smashed="yes" rot="R90">
-<attribute name="NAME" x="132.08" y="8.89" size="1.27" layer="95" ratio="10" rot="R90"/>
-<attribute name="VALUE" x="135.89" y="8.89" size="1.27" layer="96" ratio="10" rot="R90"/>
-</instance>
-<instance part="GND7" gate="1" x="133.35" y="5.08" smashed="yes">
-<attribute name="VALUE" x="130.81" y="2.54" size="1.778" layer="96"/>
+<instance part="GND7" gate="1" x="134.62" y="2.54" smashed="yes">
+<attribute name="VALUE" x="132.08" y="0" size="1.778" layer="96"/>
 </instance>
 <instance part="JP1" gate="A" x="-15.24" y="160.02" smashed="yes" rot="R180">
 <attribute name="NAME" x="-8.89" y="149.225" size="1.778" layer="95" rot="R180"/>
@@ -5114,6 +5041,14 @@ type 0207, grid 10 mm</description>
 </instance>
 <instance part="GND10" gate="1" x="-2.54" y="162.56" smashed="yes" rot="R90">
 <attribute name="VALUE" x="0" y="160.02" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R2" gate="G$1" x="134.62" y="27.94" smashed="yes" rot="R90">
+<attribute name="NAME" x="133.1214" y="24.13" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="137.922" y="24.13" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R3" gate="G$1" x="134.62" y="12.7" smashed="yes" rot="R90">
+<attribute name="NAME" x="133.1214" y="8.89" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="137.922" y="8.89" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -5172,9 +5107,9 @@ type 0207, grid 10 mm</description>
 <pinref part="GND6" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R3" gate="G$1" pin="1"/>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="133.35" y1="8.89" x2="133.35" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="5.08" x2="134.62" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="A" pin="3"/>
@@ -5221,16 +5156,6 @@ type 0207, grid 10 mm</description>
 <label x="148.59" y="57.15" size="0.6096" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="133.35" y1="16.51" x2="133.35" y2="21.59" width="0.1524" layer="91"/>
-<wire x1="133.35" y1="21.59" x2="133.35" y2="24.13" width="0.1524" layer="91"/>
-<wire x1="133.35" y1="21.59" x2="143.51" y2="21.59" width="0.1524" layer="91"/>
-<junction x="133.35" y="21.59"/>
-</segment>
-</net>
 <net name="LATCH_PIN" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="2"/>
@@ -5240,7 +5165,7 @@ type 0207, grid 10 mm</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB1_[PCINT1]"/>
 <wire x1="76.2" y1="2.54" x2="76.2" y2="0" width="0.1524" layer="91"/>
-<label x="76.2" y="0" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="76.2" y="0" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="CLOCK_PIN" class="0">
@@ -5252,7 +5177,7 @@ type 0207, grid 10 mm</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PB0_[PCINT0]"/>
 <wire x1="73.66" y1="2.54" x2="73.66" y2="0" width="0.1524" layer="91"/>
-<label x="73.66" y="0" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="73.66" y="0" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="DATA_PIN" class="0">
@@ -5264,7 +5189,7 @@ type 0207, grid 10 mm</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD7_[PCINT23]"/>
 <wire x1="71.12" y1="2.54" x2="71.12" y2="0" width="0.1524" layer="91"/>
-<label x="71.12" y="0" size="1.016" layer="95" rot="R270" xref="yes"/>
+<label x="71.12" y="0" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="PIR_OUT" class="0">
@@ -5276,7 +5201,7 @@ type 0207, grid 10 mm</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="PD5_[PCINT21]"/>
 <wire x1="66.04" y1="2.54" x2="66.04" y2="0" width="0.1524" layer="91"/>
-<label x="66.04" y="0" size="0.762" layer="95" rot="R270" xref="yes"/>
+<label x="66.04" y="0" size="0.6096" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
 <net name="5V_RAIL" class="0">
@@ -5287,7 +5212,7 @@ type 0207, grid 10 mm</description>
 </segment>
 <segment>
 <wire x1="5.08" y1="78.74" x2="16.51" y2="78.74" width="0.1524" layer="91"/>
-<label x="16.51" y="78.74" size="1.778" layer="95" xref="yes"/>
+<label x="16.51" y="78.74" size="0.6096" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="AVCC"/>
@@ -5310,9 +5235,9 @@ type 0207, grid 10 mm</description>
 <label x="43.18" y="48.26" size="0.6096" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
+<wire x1="134.62" y1="35.56" x2="134.62" y2="33.02" width="0.1524" layer="91"/>
+<label x="134.62" y="35.56" size="0.6096" layer="95" rot="R90" xref="yes"/>
 <pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="133.35" y1="31.75" x2="133.35" y2="33.02" width="0.1524" layer="91"/>
-<label x="133.35" y="33.02" size="0.6096" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
 <pinref part="JP3" gate="A" pin="3"/>
@@ -5335,6 +5260,17 @@ type 0207, grid 10 mm</description>
 <pinref part="IC1" gate="G$1" pin="PC3_[PCINT11]"/>
 <wire x1="81.28" y1="83.82" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
 <label x="81.28" y="86.36" size="0.762" layer="95" rot="R90" xref="yes"/>
+</segment>
+</net>
+<net name="3.3V_RAIL" class="0">
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="22.86" x2="134.62" y2="20.32" width="0.1524" layer="91"/>
+<label x="144.78" y="20.32" size="0.6096" layer="95" xref="yes"/>
+<wire x1="134.62" y1="20.32" x2="134.62" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="20.32" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
+<junction x="134.62" y="20.32"/>
 </segment>
 </net>
 </nets>
