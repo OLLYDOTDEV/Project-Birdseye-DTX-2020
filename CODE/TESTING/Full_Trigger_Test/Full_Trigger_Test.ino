@@ -46,16 +46,13 @@ Serial.println("\n\n\n ________________________");
 
 
 // IR code 
-
-
 if(_ValuecCount < _StartSkip){
-  IRsensor.Smooth(IR_OUT);
+  IRsensor.Smooth(IR_OUT); // triggers method but doesnt assign output to variable
  Serial.print("Skipping start value number:");
  Serial.println(_ValuecCount);
  _ValuecCount++;
 }else{
-IR_DATA = IRsensor.Smooth(IR_OUT);
-  
+IR_DATA = IRsensor.Smooth(IR_OUT); // triggers method and assign output to variable
 }
 
 
