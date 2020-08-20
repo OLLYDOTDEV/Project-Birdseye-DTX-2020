@@ -19,13 +19,13 @@
 //  |Config| 
 
 RF24 radio(9,10);  // Set up nRF24L01 (makes OOP object)
-const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };   // radio address 
-const byte payload_size = 4; // set side of wireless_data array
-String wireless_data[payload_size] = {"ID","Data1","Data2","Data3"};  // store the data to be transmitted 
+const uint64_t pipes[2] = { 1NODE, 2NODE};   // radio address 
+
+String wireless_data[4] = {"ID","Data1","Data2","Data3"};  // store the data to be transmitted 
 bool TX = 1, RX = 0, Role = 0; // assign bool value to text representatives
 
-// counter values
-int counter = 0;
+// error values
+int error = 0;
 unsigned long startTime, stopTime;
 //---------
 bool UnsentData = false;
@@ -43,7 +43,6 @@ void setup() {
  radio.setAutoAck(1); // enables autoACK  this is what autoACK is https://forum.arduino.cc/index.php?topic=504412.0
  radio.setRetries(15, 15);  // delay,(max 15) count(max 15)
  radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
-
  radio.openWritintgPipe(pipes[0]); // radio address 
  radio.openReadingPipe(1, pipes[1]); 
  radio.startListening();                  // Start listening
@@ -71,23 +70,36 @@ if(Role == TX){
 }
   
   //TX
-if (Role == TX) {
+while (Role == TX) {
+  
+ if (!radio.writeFast(&wireless_data, 32) { //Write to the FIFO buffers, also useds dynamic payload size
+ error++;                      //Keep count of failed payloads
+ Serial.print("Transmission error");
+ }
 
-      
-      if (!radio.writeFast(&wireless_data, payload_size)) { //Write to the FIFO buffers
-        counter++;                      //Keep count of failed payloads
-        Serial.print("transmission error: ");
-        Serial.print(counter);
-      }
-     
+if(!txStandBy()){
+ error++;  
+  Serial.print("Flush TX FIFO if failed"); 
+}    
+UnsentData == false
+
+if(error() != 0){ // checks if there is a error throughout transmission of data
+error = 0
+RX() 
 }
+
+} // TX END
 
 
 
 
   //RX
 
-
+while (radio.available()) {
+  radio.read(&data,sizeof(data));
+  Serial.print("Got data on pipe");
+  Serial.println(pipeNum);
+}
 
 
 
