@@ -1,4 +1,5 @@
 /*
+ Date 2020/8/20
   Title: NRF24 radio
   REPO: https://github.com/OLLYDOTDEV/Project-Birdseye-DTX-2020
   Description: create a testing platform for sendeding remote local data from one
@@ -21,11 +22,14 @@ RF24 radio(9,10);  // Set up nRF24L01 (makes OOP object)
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };   // radio address 
 const byte payload_size = 4; // set side of wireless_data array
 String wireless_data[payload_size] = {"ID","Data1","Data2","Data3"};  // store the data to be transmitted 
-bool TX = 1, RX = 0, role = 0; // assign bool value to text representatives
+bool TX = 1, RX = 0, Role = 0; // assign bool value to text representatives
 
 // counter values
 int counter = 0;
 unsigned long startTime, stopTime;
+//---------
+bool UnsentData = false;
+
 
 void setup() {
  
@@ -40,7 +44,7 @@ void setup() {
  radio.setRetries(15, 15);  // delay,(max 15) count(max 15)
  radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
 
- radio.openWritingPipe(pipes[0]); // radio address 
+ radio.openWritintgPipe(pipes[0]); // radio address 
  radio.openReadingPipe(1, pipes[1]); 
  radio.startListening();                  // Start listening
  radio.printDetails();                    // Dump the configuration of the rf unit for debugging
@@ -55,24 +59,27 @@ Serial.println("initialising programmed");
 
 }
 void loop() {
-  //TX
 
-
-
-
+// Transmission Mode change
+ 
+if (UnsentData == true ){ // Looks if there is data that needs to be tranmitted 
+if(Role == TX){
+// do nothing as it will send data anyway also dont reset connect to other radio
+}else {
+  TX() // makesure role to TX so that it can set     
+}  
+}
   
-if (role == TX) {
+  //TX
+if (Role == TX) {
 
-
-
-                     //Change the first byte of the payload for identification
+      
       if (!radio.writeFast(&wireless_data, payload_size)) { //Write to the FIFO buffers
         counter++;                      //Keep count of failed payloads
         Serial.print("transmission error: ");
         Serial.print(counter);
       }
-
-
+     
 }
 
 
@@ -82,25 +89,28 @@ if (role == TX) {
 
 
 
-// mode control 
- 
-  if ( Serial.available()) { // 
-    char c = toupper(Serial.read());
-    if (c == 'T' && role == RX) {
-      Serial.println(F("*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK"));
-      delay(10);
-      radio.openWritingPipe(pipes[1]);
-      radio.openReadingPipe(1, pipes[0]);
-      role = TX;                
-    } else if (c == 'R' && role == TX) {
 
-      Serial.println(F("*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK"));
-      delay(10);  
-      radio.openWritingPipe(pipes[0]);
-      radio.openReadingPipe(1, pipes[1]); 
-      role = RX; 
-  
-    }
-  }
 
+} // end of loop
+
+
+// |---------|
+// |Functions|
+// |---------|
+
+void TX(void){
+  Serial.println(F("*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK"));
+  delay(10);  
+  radio.openWritingPipe(pipes[1]);
+  radio.openReadingPipe(1, pipes[0]); 
+  Role = RX; 
+  radio.stopListening();                  // Stop listening 
+ }
+void RX(void){
+  Serial.println(F("*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK"));
+  delay(10);  
+  radio.openWritingPipe(pipes[0]);
+  radio.openReadingPipe(1, pipes[1]); 
+  Role = RX; 
+  radio.startListening();                  // Start listening
 }
