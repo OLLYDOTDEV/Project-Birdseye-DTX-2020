@@ -21,7 +21,11 @@
 RF24 radio(9,10);  // Set up nRF24L01 (makes OOP object)
 const uint64_t pipes[2] = { 1NODE, 2NODE};   // radio address 
 
-String wireless_data[4] = {"ID","Data1","Data2","Data3"};  // store the data to be transmitted 
+// 1 byte can hold 1 character , there for the max amount of data that can be sent in one packect witht the NRF24 is 32bytes worth
+i can send is 32 character worth
+String wireless_send[32];  // store the data to be transmitted 
+String wireless_receive[32];  // store data that has been received
+
 bool TX = 1, RX = 0, Role = 0; // assign bool value to text representatives
 
 // error values
@@ -94,13 +98,13 @@ RX()
 
 
   //RX
-
+if (Role == RX){
 while (radio.available()) {
-  radio.read(&data,sizeof(data));
-  Serial.print("Got data on pipe");
-  Serial.println(pipeNum);
+  radio.read(&wireless_receive, 32);
+  Serial.print("Wireless data Recived, Printing: ");
+  Serial.println(wireless_receive);
 }
-
+}
 
 
 } // end of loop
