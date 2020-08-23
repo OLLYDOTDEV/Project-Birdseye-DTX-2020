@@ -21,8 +21,7 @@
 RF24 radio(9,10);  // Set up nRF24L01 (makes OOP object)
 const uint64_t pipes[2] = { 1NODE, 2NODE};   // radio address 
 
-// 1 byte can hold 1 character , there for the max amount of data that can be sent in one packect witht the NRF24 is 32bytes worth
-i can send is 32 character worth
+// 1 byte can hold 1 character , there for the max amount of data that can be sent in one packect witht the NRF24 is 32bytes worth of character
 String wireless_send[32];  // store the data to be transmitted 
 String wireless_receive[32];  // store data that has been received
 
@@ -75,7 +74,7 @@ if(Role == TX){
   
   //TX
 while (Role == TX) {
-  
+ error = 0  
  if (!radio.writeFast(&wireless_data, 32) { //Write to the FIFO buffers, also useds dynamic payload size
  error++;                      //Keep count of failed payloads
  Serial.print("Transmission error");
@@ -83,11 +82,11 @@ while (Role == TX) {
 
 if(!txStandBy()){
  error++;  
-  Serial.print("Flush TX FIFO if failed"); 
+  Serial.print("Flush TX FIFO failed"); 
 }    
 UnsentData == false
 
-if(error() != 0){ // checks if there is a error throughout transmission of data
+if(error() != 0){ // checks if there is a error while transmission of data
 error = 0
 RX() 
 }
