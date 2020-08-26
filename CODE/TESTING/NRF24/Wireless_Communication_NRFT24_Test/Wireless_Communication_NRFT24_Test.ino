@@ -13,7 +13,7 @@
 // include needed libraries
 #include <SPI.h>
 #include "RF24.h"
-
+#include "printf.h"
 
 
 //  |Config| 
@@ -40,6 +40,7 @@ void setup(){
 
  Serial.begin(115200);
  delay(2000); // allow time for start up 
+ printf_begin();
  Serial.println("Initialising embedded software"); // Debug for when the start up function runs 
  radio.begin();  // called function to setup the radio.
  radio.setChannel(125); // select sport portion of the 2.4 gigahertz Spectrum it is broadcasting on in this case it is selected above the frequency of 2.4Ghz Wi-Fi thus was will not received interference. 
@@ -51,9 +52,9 @@ void setup(){
  radio.openWritingPipe(pipes[0]); // radio address 
  radio.openReadingPipe(1, pipes[1]); 
  radio.startListening();                  // Start listening
- radio.printDetails();                    // Dump the configuration of the rf unit for debugging
+ radio.printDetails();                    // Dump the configuration of the rf unit for debugging || #include "printf.h" and also   printf_begin();
  radio.powerUp();                         //Power up the radio
-
+radio.printDetails(); // 
   
 Serial.println("Initialising Main Program");
 delay(100);
