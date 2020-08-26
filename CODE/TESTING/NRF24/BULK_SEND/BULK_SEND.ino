@@ -1,5 +1,5 @@
 /* Test NRF24 By just sending Data at the SPI Connection
- *  
+ *   
  *  
  */
 
@@ -29,10 +29,7 @@ void setup() {
   radio.openReadingPipe(1, pipes[1]);
 
 
-  
-  radio.startListening();                  // Start listening
-  radio.printDetails();                    // Dump the configuration of the rf unit for debugging
-
+ 
   Serial.println(F("\\BULK INFO Spam\\"));
   for (int i = 0; i < 32; i++) {
     data[i] = random(255);                //Load the buffer with random data
