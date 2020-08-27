@@ -10,7 +10,7 @@
 RF24 radio(10,9);
 
 
-byte data[32];       // buffer
+byte data[4];       // buffer
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };
 int radioread = 0;
 bool received = false;
@@ -22,7 +22,7 @@ void setup() {
   radio.begin(); 
   radio.setChannel(1);
   radio.setPALevel(RF24_PA_LOW);           // If you want to save power use "RF24_PA_MIN" but keep in mind that reduces the module's range
-  radio.setDataRate(RF24_2MBPS);
+  radio.setDataRate(RF24_250KBPS);
   radio.setAutoAck(false);                    
   radio.setRetries(15, 15);    
 
@@ -45,24 +45,18 @@ delay(2000);
 
 
  while (radio.available()) {
-      radio.read(&data, 32);
+      radio.read(&data, 4);
       received = true;
   }
 
-  for (int i = 0; i < 32; i++) {
+  for (int i = 0; i < 4; i++) {
    radioread = data[i];                //Load the buffer with random data
    Serial.print("Data Received: ");  
    Serial.println(radioread);
   }
   Serial.println("\n\n");
-
-
-
-
-  for (int i = 0; i < 32; i++) {
+  for (int i = 0; i < 4; i++) { // clears data
     data[i] = 0;
-    
-    
   }
 Serial.println("Clearing Array");  
 received = false;
