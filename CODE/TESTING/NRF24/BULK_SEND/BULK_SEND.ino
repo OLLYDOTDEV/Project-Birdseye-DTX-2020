@@ -32,8 +32,9 @@ void setup() {
  
   Serial.println(F("\\BULK INFO Spam\\"));
   for (int i = 0; i < 32; i++) {
-    data[i] = random(255);                //Load the buffer with random data
+    data[i] = i;                //Load the buffer with random data
   }
+    radio.printDetails();   
   radio.powerUp();                         //Power up the radio
   
 }
@@ -41,6 +42,14 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 delay(2000);
+
+for (int i = 0; i < 32; i++) {
+    
+  Serial.print("Sending :");
+  Serial.println(data[i]);
+  }
 radio.writeFast(&data, 32);
 radio.txStandBy(1000);
+
+ Serial.println("\n\n");
 }

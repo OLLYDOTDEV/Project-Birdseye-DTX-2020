@@ -13,7 +13,7 @@ RF24 radio(10,9);
 byte data[32];       // buffer
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };
 int radioread = 0;
-
+bool received = false;
 void setup() {
   // put your setup code here, to run once:
  Serial.begin(115200);
@@ -36,18 +36,38 @@ void setup() {
 }
 
 void loop() {
+
+
+
+
+  
 delay(2000);
 
 
  while (radio.available()) {
       radio.read(&data, 32);
+      received = true;
   }
 
   for (int i = 0; i < 32; i++) {
    radioread = data[i];                //Load the buffer with random data
-   Serial.print("Data Received");  
+   Serial.print("Data Received: ");  
    Serial.println(radioread);
   }
+  Serial.println("\n\n");
+
+
+
+
+  for (int i = 0; i < 32; i++) {
+    data[i] = 0;
+    
+    
+  }
+Serial.println("Clearing Array");  
+received = false;
+delay(1000);
+ 
 
 
 
