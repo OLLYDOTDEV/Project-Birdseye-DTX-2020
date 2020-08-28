@@ -19,12 +19,12 @@ void setup() {
  delay(2000);
   printf_begin();
   radio.begin(); 
-  radio.setChannel(1);
+  radio.setChannel(125);
   radio.setPALevel(RF24_PA_LOW);           // If you want to save power use "RF24_PA_MIN" but keep in mind that reduces the module's range
   radio.setDataRate(RF24_250KBPS);
   radio.setAutoAck(false);                     // Ensure autoACK is disabled
   radio.setRetries(15, 15);    
-
+ radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
   radio.openWritingPipe(pipes[0]);
   radio.openReadingPipe(1, pipes[1]);
 
@@ -32,7 +32,7 @@ void setup() {
  
   Serial.println(F("\\BULK INFO Spam\\"));
   for (int i = 0; i < 4; i++) {
-    data[i] = i;                //Load the buffer with random data
+    data[i] = i + 1;                //Load the buffer with random data
   }
     radio.printDetails();   
   radio.powerUp();                         //Power up the radio
@@ -41,7 +41,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-delay(2000);
+
 
 for (int i = 0; i < 4; i++) {
     

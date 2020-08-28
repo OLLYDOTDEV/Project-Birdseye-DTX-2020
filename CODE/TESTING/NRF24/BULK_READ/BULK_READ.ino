@@ -20,12 +20,16 @@ void setup() {
  delay(2000);
   printf_begin();
   radio.begin(); 
-  radio.setChannel(1);
+  
+  radio.setChannel(125);
   radio.setPALevel(RF24_PA_LOW);           // If you want to save power use "RF24_PA_MIN" but keep in mind that reduces the module's range
+  
   radio.setDataRate(RF24_250KBPS);
   radio.setAutoAck(false);                    
+  
   radio.setRetries(15, 15);    
-
+  radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
+  
   radio.openWritingPipe(pipes[1]);
   radio.openReadingPipe(1, pipes[0]);
 
@@ -50,6 +54,7 @@ delay(2000);
   }
 
   for (int i = 0; i < 4; i++) {
+  
    radioread = data[i];                //Load the buffer with random data
    Serial.print("Data Received: ");  
    Serial.println(radioread);
@@ -58,10 +63,12 @@ delay(2000);
   for (int i = 0; i < 4; i++) { // clears data
     data[i] = 0;
   }
+
+if(received == true){
 Serial.println("Clearing Array");  
 received = false;
 delay(1000);
- 
+}
 
 
 
