@@ -88,6 +88,12 @@ void loop() {
   if (Role == TX) {
     byte wireless_send[4];  // store data to be transmitted
     error = 0;
+
+    wireless_send[0] = 1 ;
+    wireless_send[1] = 2 ; 
+    wireless_send[2] = 3 ; 
+    wireless_send[3] = 4 ;
+    
     if (!radio.writeFast(&wireless_send, 4)) { //Write to the FIFO buffers, also useds dynamic payload size
       error++ ;                      //Keep count of failed payloads
       Serial.println("Transmission error");;
@@ -110,6 +116,8 @@ void loop() {
   //RX
   if (Role == RX) {
     byte wireless_receive[4];  // store data that has been received
+   
+    
     if (radio.available()) { // if there is information get prep for incomming otherwise 
       while (radio.available()) { // loop to read all the information in FIFO BUS
         radio.read(&wireless_receive, 4);   

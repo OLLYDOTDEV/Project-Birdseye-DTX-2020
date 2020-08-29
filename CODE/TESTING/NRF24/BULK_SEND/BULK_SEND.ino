@@ -49,7 +49,7 @@ for (int i = 0; i < 4; i++) {
   Serial.println(data[i]);
   }
 radio.writeFast(&data, 4);
-radio.txStandBy(1000);
+  radio.txStandBy(1000);
 
  Serial.println("\n\n\n");
 }
