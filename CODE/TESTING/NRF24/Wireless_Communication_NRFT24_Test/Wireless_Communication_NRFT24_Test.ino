@@ -51,9 +51,12 @@ void setup() {
   radio.setPALevel(RF24_PA_LOW); // will be reaplaced with RF24_PA_MAX for larger range & penetration
 
   radio.setDataRate(RF24_250KBPS); // less speed means great transmission stability (values can be [RF24_250KBPS, RF24_1MBPS, RF24_2MBPS])
-  radio.setAutoAck(false); // enables autoACK  this is what autoACK is https://forum.arduino.cc/index.php?topic=504412.0
+  radio.setAutoAck(true); // enables autoACK  this is what autoACK is https://forum.arduino.cc/index.php?topic=504412.0
+  
+  radio.enableDynamicPayloads() ;
+  radio.enableAckPayload();         
 
-  radio.setRetries(15, 15);  // delay,(max 15) count(max 15)
+  radio.setRetries(1, 15);  // delay,(max 15) count(max 15)
   radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
 
   radio.openWritingPipe(pipes[1]); // radio address
@@ -64,11 +67,13 @@ void setup() {
 
   radio.powerUp();                         //Power up the radio
 
+  delay(1000);
+
   Serial.println("Initialising Main Program");
   Serial.println("defaulting RECEIVE State");
   Serial.println("\n *** R=RECEIVE | T=TRANSMIT ***");
 
-  delay(100);
+  delay(1000);
 
   // debug
 }
@@ -86,28 +91,33 @@ void loop() {
 
   //TX
   if (Role == TX) {
+  Serial.println("");
+    
     byte wireless_send[4];  // store data to be transmitted
-    error = 0;
+    error = 0; // reset if there has been a error
+
 
     wireless_send[0] = 1 ;
     wireless_send[1] = 2 ; 
     wireless_send[2] = 3 ; 
     wireless_send[3] = 4 ;
     
-    if (!radio.writeFast(&wireless_send, 4)) { //Write to the FIFO buffers, also useds dynamic payload size
-      error++ ;                      //Keep count of failed payloads
+ Serial.println("Transmitting...");
+    if (!radio.write(&wireless_send, 4)) { //Write to the FIFO buffers, also useds dynamic payload size
+      error = 1 ;                      //Keep count of failed payloads
       Serial.println("Transmission error");;
-    }
-    if (!radio.txStandBy()) {
-      error++;
-      Serial.println("Flush TX FIFO failed");
-    }
+    }else{
+    Serial.println("Transmission Successful\n");
     UnsentData == false;
-    if (error != 0) { // checks if there is a error while transmission of data
-      error = 0;
-      RXF();
     }
-    delay(500);
+    
+    if (error == 0) { // checks if there is a error while transmission of data
+      
+      RXF();
+    }else{
+      
+     }
+    
   } // TX END
 
 
@@ -158,6 +168,7 @@ void TXF() {
   radio.openWritingPipe(pipes[0]);
   radio.openReadingPipe(1, pipes[1]);
   Role = TX;
+  delay(1000);
 
 }
 void RXF(void) {
@@ -167,6 +178,7 @@ void RXF(void) {
   radio.openReadingPipe(1, pipes[0]);
   Role = RX;
   radio.startListening();                  // Start listening
+  delay(1000);
 }
 
 
