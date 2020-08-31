@@ -14,26 +14,18 @@ void TRANSMIT(){
    Serial.println("");
  
     byte wireless_send[4];  // store data to be transmitted
- 
-    
-
 
     wireless_send[0] = 1 ;
     wireless_send[1] = 2 ; 
     wireless_send[2] = 3 ; 
     wireless_send[3] = 4 ;
-    
- Serial.println("Transmitting...");
-
-
-
- 
+Serial.println("Transmitting..."); 
 if(error > 9){ // if error count great then 10 reset value
     error = 0; 
-    startTime = millis();
     }
-       
-       
+if(error == 0){
+   startTime = millis();
+  }
     if (!radio.write(&wireless_send, 4)) { //Write to the FIFO buffers, also useds dynamic payload size
       error++;                      //Keep count of failed payloads
 
@@ -56,7 +48,8 @@ if(error > 9){ // if error count great then 10 reset value
      }else{
      Serial.println("Transmission Successful\n");
      UnsentData == false;
-     
+     Transmissiontime = false;
+     error = 0;
      }
     
     if (error == 0) { // checks if there is a error while transmission of data
@@ -65,9 +58,11 @@ if(error > 9){ // if error count great then 10 reset value
     }else{
       stopTime = millis();
       if(stopTime - startTime  > 5000)
+      delay(100);
+      Serial.print("Time Taken: ");
       Serial.println(stopTime - startTime );
   
-      Serial.println("Transmition taking to long");
+      Serial.println("Transmition is taking too long");
       Transmissiontime = true;
      }
 }
