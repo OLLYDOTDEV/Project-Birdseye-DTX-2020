@@ -41,7 +41,7 @@ if(error > 9){ // if error count great then 10 reset value
 
        if( error > 9 || Transmissiontime == true){ // keeps trying to send data for 5 seconds
 
-        Serial.println("Checking to other Radio is Transmitting ");
+        Serial.println("Checking if other Radio is Transmitting ");
          RXF(); // change to 
          
          if(radio.available()){
