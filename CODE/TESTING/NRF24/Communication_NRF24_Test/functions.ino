@@ -12,10 +12,11 @@
 // Role change
 void TRANSMIT(){
    Serial.println("");
-    
+  bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
     byte wireless_send[4];  // store data to be transmitted
-    error = 0; // reset if there has been a error
+ 
     
+
 
     wireless_send[0] = 1 ;
     wireless_send[1] = 2 ; 
@@ -23,15 +24,27 @@ void TRANSMIT(){
     wireless_send[3] = 4 ;
     
  Serial.println("Transmitting...");
+
+startTime = millis();
+
+ 
+if(error > 9){ // if error count great then 10 reset value
+    error = 0; 
+    }
+       
+       
     if (!radio.write(&wireless_send, 4)) { //Write to the FIFO buffers, also useds dynamic payload size
-      error = 1 ;                      //Keep count of failed payloads
-      Serial.println("Transmission error");
-       if(0 == radio.txStandBy(10000) ){ // keeps trying to send data for 5 seconds
-        Serial.println("Unable to Transmit ");
+      error++;                      //Keep count of failed payloads
+
+      Serial.print("Transmission error number: ");
+       Serial.println(error); 
+
+       if( error > 9 || Transmissiontime == true){ // keeps trying to send data for 5 seconds
+
         Serial.println("Checking to other Radio is Transmitting ");
          RXF(); // change to 
          
-         while(receiving == true){
+         if(radio.available()){
          Serial.println("other radio transmitting waiting for available transmission slot");
          RECEIVE();
          }
@@ -42,11 +55,17 @@ void TRANSMIT(){
      }else{
      Serial.println("Transmission Successful\n");
      UnsentData == false;
+     
      }
     
     if (error == 0) { // checks if there is a error while transmission of data
+      
       RXF();
     }else{
+      stopTime = millis();
+      if(startTime - stopTime > 4000)
+      Serial.println("Transmition taking to long");
+      Transmissiontime = true;
      }
 }
 
