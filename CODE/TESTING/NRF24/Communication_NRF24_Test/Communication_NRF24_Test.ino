@@ -29,6 +29,9 @@ bool TX = 1, RX = 0, Role = 0; // assign bool value to text representatives
 // error values
 int error = 0;
 unsigned long startTime, stopTime;
+
+ bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
+
 //---------
 bool UnsentData = false;
 char Serialdata = "0";

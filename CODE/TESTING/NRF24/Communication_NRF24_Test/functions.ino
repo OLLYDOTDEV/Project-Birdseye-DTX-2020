@@ -12,7 +12,7 @@
 // Role change
 void TRANSMIT(){
    Serial.println("");
-  bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
+ 
     byte wireless_send[4];  // store data to be transmitted
  
     
@@ -25,11 +25,12 @@ void TRANSMIT(){
     
  Serial.println("Transmitting...");
 
-startTime = millis();
+
 
  
 if(error > 9){ // if error count great then 10 reset value
     error = 0; 
+    startTime = millis();
     }
        
        
@@ -63,7 +64,9 @@ if(error > 9){ // if error count great then 10 reset value
       RXF();
     }else{
       stopTime = millis();
-      if(startTime - stopTime > 4000)
+      if(stopTime - startTime  > 5000)
+      Serial.println(stopTime - startTime );
+  
       Serial.println("Transmition taking to long");
       Transmissiontime = true;
      }
