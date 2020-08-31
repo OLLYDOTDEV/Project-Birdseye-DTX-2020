@@ -35,8 +35,7 @@ char Serialdata = "0";
 
 int radioread = 0;
 bool received = false;
-
-
+bool receiving = false;
 
 void setup() {
 

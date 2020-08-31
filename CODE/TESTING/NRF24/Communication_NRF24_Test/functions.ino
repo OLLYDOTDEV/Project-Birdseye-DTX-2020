@@ -15,7 +15,7 @@ void TRANSMIT(){
     
     byte wireless_send[4];  // store data to be transmitted
     error = 0; // reset if there has been a error
-    bool receiving = false;
+    
 
     wireless_send[0] = 1 ;
     wireless_send[1] = 2 ; 
@@ -30,10 +30,11 @@ void TRANSMIT(){
         Serial.println("Unable to Transmit ");
         Serial.println("Checking to other Radio is Transmitting ");
          RXF(); // change to 
-   
-//         if( receiving == true){
-//          Serial.println("other radio transmitting waiting for available transmission slot");
-//         }
+         
+         while(receiving == true){
+         Serial.println("other radio transmitting waiting for available transmission slot");
+         RECEIVE();
+         }
          
          TXF();
          receiving = false;
