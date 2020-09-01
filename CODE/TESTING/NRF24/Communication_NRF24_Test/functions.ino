@@ -26,7 +26,7 @@ if(error > 9){ // if error count great then 10 reset value
 if(error == 0){
    startTime = millis();
   }
-    if (!radio.write(&wireless_send, 4)) { //Write to the FIFO buffers, also useds dynamic payload size
+    if (!radio.write(&wireless_send, sizeof(wireless_send))) { //Write to the FIFO buffers, also useds dynamic payload size
       error++;                      //Keep count of failed payloads
 
       Serial.print("Transmission error number: ");
@@ -71,7 +71,7 @@ void RECEIVE(){
     byte wireless_receive[4];  // store data that has been received
     if (radio.available()) { // if there is information get prep for incomming otherwise 
       while (radio.available()) { // loop to read all the information in FIFO BUS
-        radio.read(&wireless_receive, 4);   
+        radio.read(&wireless_receive, sizeof(wireless_receive));   
         received = true;
         for (int i = 0; i < 4; i++) {
           radioread = wireless_receive[i];                //Load the buffer with random data
