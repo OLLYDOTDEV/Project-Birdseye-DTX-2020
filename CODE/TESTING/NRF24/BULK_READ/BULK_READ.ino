@@ -10,10 +10,36 @@
 RF24 radio(10,9);
 
 
-byte data[4];       // buffer
+
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };
 int radioread = 0;
 bool received = false;
+
+
+
+
+typedef struct
+{
+   String Data;
+
+}
+DataDef;
+DataDef DataPak;
+
+
+
+
+typedef struct
+{
+   
+char Data[31];
+
+}
+BuffDef;
+BuffDef BuffPak;
+
+
+
 void setup() {
   // put your setup code here, to run once:
  Serial.begin(115200);
@@ -42,34 +68,34 @@ void setup() {
 void loop() {
 
 
-
-
-  
 delay(2000);
 
 
  while (radio.available()) {
-      radio.read(&data, 4);
+      radio.read(&BuffPak, sizeof(BuffPak));
       received = true;
-  }
 
-  for (int i = 0; i < 4; i++) {
-  
-   radioread = data[i];                //Load the buffer with random data
-   Serial.print("Data Received: ");  
-   Serial.println(radioread);
-  }
+ }
+
+    String TempBuffString(BuffPak.Data); // This Varible must be 
+      DataPak.Data = TempBuffString;
+
+        Serial.print("Data Received: ");  
+   Serial.println(DataPak.Data);
   Serial.println("\n\n");
-  for (int i = 0; i < 4; i++) { // clears data
-    data[i] = 0;
-  }
+
+
 
 if(received == true){
+
+  for (byte i = 0;i <= 31; i++) {
+    BuffPak.Data[i] = '0'; // String to char Array
+
+ 
+  }
+
 Serial.println("Clearing Array");  
 received = false;
-delay(1000);
+delay(500);
 }
-
-
-
 }

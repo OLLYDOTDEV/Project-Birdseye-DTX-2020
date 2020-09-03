@@ -13,10 +13,33 @@ byte data[4];       // buffer
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };
 
 
+typedef struct
+{
+   String Data = "Char test ";
+
+}
+DataDef;
+DataDef DataPak;
+
+
+
+
+typedef struct
+{
+   
+char Data[31];
+
+}
+BuffDef;
+BuffDef BuffPak;
+
+
+
+
 void setup() {
   // put your setup code here, to run once:
  Serial.begin(115200);
- delay(2000);
+  delay(2000);
   printf_begin();
   radio.begin(); 
   radio.setChannel(125);
@@ -24,32 +47,41 @@ void setup() {
   radio.setDataRate(RF24_250KBPS);
   radio.setAutoAck(false);                     // Ensure autoACK is disabled
   radio.setRetries(15, 15);    
- radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
+  radio.setCRCLength(RF24_CRC_8);  // Cyclic redundancy check used for error-detecting
   radio.openWritingPipe(pipes[0]);
   radio.openReadingPipe(1, pipes[1]);
 
 
  
   Serial.println(F("\\BULK INFO Spam\\"));
-  for (int i = 0; i < 4; i++) {
-    data[i] = i + 1;                //Load the buffer with random data
-  }
+  
+  
     radio.printDetails();   
-  radio.powerUp();                         //Power up the radio
+    radio.powerUp();                         //Power up the radio
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+typedef struct
+{
+   char Buff[32];
 
-
-for (int i = 0; i < 4; i++) {
-    
-  Serial.print("Sending : ");
-  Serial.println(data[i]);
+}
+RadioBuffDef;
+RadioBuffDef RadioBuffPak;
+  
+  
+  for (byte i = 0;i <= DataPak.Data.length(); i++) {
+    BuffPak.Data[i] = DataPak.Data[i]; // String to char Array  
   }
-radio.writeFast(&data, 4);
-  radio.txStandBy(1000);
+
+  
+  Serial.print("Sending: ");
+  Serial.println(BuffPak.Data);
+  
+radio.writeFast(&BuffPak, sizeof(BuffPak));
+  radio.txStandBy(500);
 
  Serial.println("\n\n\n");
 }
