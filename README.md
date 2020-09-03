@@ -3,4 +3,4 @@ The initial plan is to create a device that is made for the sole purpose of a Pr
 
 ________
 See for devlog of project
-shorturl.at/nJLN0
+view https://github.com/OLLYDOTDEV/Project-Birdseye-DTX-2020/issues
