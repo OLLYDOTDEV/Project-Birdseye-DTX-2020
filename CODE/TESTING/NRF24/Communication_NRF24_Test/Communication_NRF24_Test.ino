@@ -10,15 +10,14 @@
   for the purpose of https://github.com/OLLYDOTDEV/Project-Birdseye-DTX-2020/issues/17
 */
 
-// include needed libraries
-#include <SPI.h>
 #include "RF24.h"
 #include "printf.h"
-
 
 //  |Config|
 
 RF24 radio(10, 9); // Set up nRF24L01 (makes OOP object) || RF24(_cepin _cspin )
+// include needed libraries
+#include <SPI.h>
  
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };   // radio address
 
@@ -27,10 +26,12 @@ const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };   // radio address
 bool TX = 1, RX = 0, Role = 0; // assign bool value to text representatives
 
 // error values
-int error = 0;
+byte Transmission_error = 0;
+byte PacketSizeError = 0;
+
 unsigned long startTime, stopTime;
 
- bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
+bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
 
 //---------
 bool UnsentData = false;
@@ -39,6 +40,38 @@ char Serialdata = "0";
 int radioread = 0;
 bool received = false;
 bool receiving = false;
+
+// custom data types 
+typedef struct // for Wireless_Receive packet 
+{
+  String Data; 
+  }
+Wireless_ReceiveDef;
+Wireless_ReceiveDef Wireless_Receive;
+
+
+typedef struct // for Wireless_Recieve Buffer 
+{ 
+  char Data[32];
+  }
+Buff_ReceiveDef ;
+Buff_ReceiveDef Buff_Receive;
+
+// --------------
+
+typedef struct // for Wireless_Send packet 
+{
+  String Data; 
+  }
+Wireless_SendDef;
+Wireless_SendDef Wireless_Send;
+
+typedef struct // for Wireless_Send Buffer 
+{
+  char Data[32]; 
+  }
+Buff_SendDef;
+Buff_SendDef Buff_Send;
 
 void setup() {
 
@@ -83,20 +116,20 @@ void setup() {
 void loop() {
   Serialread(); // read if there is Serial information
   // Transmission Mode change
-  if (UnsentData == true ) { // Looks if there is data that needs to be tranmitted
-    if (Role == TX) {
-      // do nothing as it will send data anyway also dont reset connect to other radio
-    } else {
-      TXF(); // makesure role to TX so that it can set
-    }
-  }
+  if(UnsentData == true){ // Looks if there is data that needs to be tranmitted
+     if(Role == TX){
+     // do nothing as it will send data anyway also dont reset connect to other radio
+     }else{
+          TXF(); // makesure role to TX so that it can set
+          }
+   }
 
   //TX
-  if (Role == TX) {
-  TRANSMIT();
-  } // TX END
+  if(Role == TX){
+    TRANSMIT();
+   } // TX END
   //RX
-  else if (Role == RX) {
-  RECEIVE();
- } 
+  else if(Role == RX){
+        RECEIVE();
+        } 
 } // end of loop
