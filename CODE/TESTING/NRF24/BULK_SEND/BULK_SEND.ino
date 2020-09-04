@@ -9,14 +9,14 @@
 #include "printf.h"
 RF24 radio(10,9);
 
-byte data[4];       // buffer
 const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };
 
 
-typedef struct
+typedef struct // only for strings
 {
-   String Data = "Char test ";
-
+   //String Data = "12341234123412341234123412341234";
+   // String Data = "TESTGAMETESTGAMETESTGAMETESTGAME12345TESTGAMETESTGAMETESTGAMETESTGAME12345";
+    String Data = "TESTGAME";
 }
 DataDef;
 DataDef DataPak;
@@ -24,17 +24,17 @@ DataDef DataPak;
 
 
 
-typedef struct
+typedef struct   // max of 32 Char objects with in this struct as the NRF24 radio and only send 32 bytes
 {
    
-char Data[31];
+char Data[32];
 
 }
 BuffDef;
 BuffDef BuffPak;
 
 
-
+byte Error = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -63,25 +63,39 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-typedef struct
-{
-   char Buff[32];
 
-}
-RadioBuffDef;
-RadioBuffDef RadioBuffPak;
-  
-  
+  if(DataPak.Data.length() <= sizeof(BuffPak.Data)){ // Stop overloading Char array with to large sized string
   for (byte i = 0;i <= DataPak.Data.length(); i++) {
     BuffPak.Data[i] = DataPak.Data[i]; // String to char Array  
   }
+  }else{
+    Error = 1;
+     Serial.println("\n\n\n");
+      Serial.println("Warning failed to convert string to array: String to large, please make sure that the String is smaller then char array ");
+       Serial.println("\n\n\n");
+    }
 
+  if(sizeof(BuffPak)> 32){ // add check for length of all varible in Datapak and make sure they are also under 32 
+  Error = 1;
+   Serial.print("Buff Size: ");
+  Serial.println(sizeof(BuffPak));
+ Serial.println("Failed to Send, Data Structure to Large");
+  }
+  
+  if(Error == 0){
+   Serial.print("Buff Size: ");
+  Serial.println(sizeof(BuffPak));
   
   Serial.print("Sending: ");
   Serial.println(BuffPak.Data);
   
 radio.writeFast(&BuffPak, sizeof(BuffPak));
-  radio.txStandBy(500);
+  radio.txStandBy(100);
 
  Serial.println("\n\n\n");
+ delay(500);
+}else{
+Error = 0;
+delay(5000);
+}
 }

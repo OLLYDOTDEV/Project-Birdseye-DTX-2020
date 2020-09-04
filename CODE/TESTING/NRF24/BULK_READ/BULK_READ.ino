@@ -32,7 +32,7 @@ DataDef DataPak;
 typedef struct
 {
    
-char Data[31];
+char Data[32];
 
 }
 BuffDef;
@@ -68,8 +68,6 @@ void setup() {
 void loop() {
 
 
-delay(2000);
-
 
  while (radio.available()) {
       radio.read(&BuffPak, sizeof(BuffPak));
@@ -77,24 +75,37 @@ delay(2000);
 
  }
 
-    String TempBuffString(BuffPak.Data); // This Varible must be 
+
+  
+
+    
+    String TempBuffString(BuffPak.Data); // This Varible must be declare here
       DataPak.Data = TempBuffString;
 
+ 
+//     DataPak.Data.remove(DataPak.Data.length()-1,1); not all way needed || remove last character from string
+
+
+        
+      Serial.print("Packet Size: ");
+        Serial.println(sizeof(DataPak));
+ //   Serial.print("Packet Length: ");
+  //  Serial.println(DataPak.Data.length());  
+
+
         Serial.print("Data Received: ");  
-   Serial.println(DataPak.Data);
+   Serial.println(BuffPak.Data);
   Serial.println("\n\n");
 
 
 
 if(received == true){
 
-  for (byte i = 0;i <= 31; i++) {
-    BuffPak.Data[i] = '0'; // String to char Array
 
- 
-  }
 
-Serial.println("Clearing Array");  
+  memset(BuffPak.Data, 0, 32*sizeof(*BuffPak.Data)); // clear char array || // https://stackoverflow.com/questions/9146395/reset-c-int-array-to-zero-the-fastest-way 
+
+Serial.println("Clearing Array\n");  
 received = false;
 delay(500);
 }
