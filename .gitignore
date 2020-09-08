@@ -1,3 +1,4 @@
 Schematics/PCBS/*.s#*
 Schematics/PCBS/*.b#*
 Schematics/PCBS/*.job
+.vscode
