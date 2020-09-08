@@ -4,10 +4,17 @@
  */
 
 
-#include <SPI.h>
-#include "RF24.h"
-#include "printf.h"
-RF24 radio(10,9);
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <unistd.h>
+#include <RF24/RF24.h>
+
+
+using namespace std;
+
+RF24 radio(22,0);
 
 
 
@@ -20,7 +27,7 @@ bool received = false;
 
 typedef struct
 {
-   String Data;
+   string Data;
 
 }
 DataDef;
@@ -40,11 +47,8 @@ BuffDef BuffPak;
 
 
 
-void setup() {
-  // put your setup code here, to run once:
- Serial.begin(115200);
- delay(2000);
-  printf_begin();
+void setup(void) {
+  delay(2000);
   radio.begin(); 
   
   radio.setChannel(125);
@@ -65,37 +69,26 @@ void setup() {
   radio.powerUp();    
 }
 
-void loop() {
-
-
-
+void loop(void) {
  while (radio.available()) {
       radio.read(&BuffPak, sizeof(BuffPak));
       received = true;
-
  }
-
-
-  
-
-    
-    String TempBuffString(BuffPak.Data); // This Varible must be declare here
-      DataPak.Data = TempBuffString;
+    string TempBuffstring(BuffPak.Data); // This Varible must be declare here
+      DataPak.Data = TempBuffstring;
 
  
 //     DataPak.Data.remove(DataPak.Data.length()-1,1); not all way needed || remove last character from string
 
 
         
-      Serial.print("Packet Size: ");
-        Serial.println(sizeof(DataPak));
- //   Serial.print("Packet Length: ");
-  //  Serial.println(DataPak.Data.length());  
+      cout << "Packet Size: ";
+      cout << sizeof(BuffPak.Data);
+      cout << "\n";
 
-
-        Serial.print("Data Received: ");  
-   Serial.println(BuffPak.Data);
-  Serial.println("\n\n");
+      cout << "Data Received: ";  
+      cout << BuffPak.Data ;
+      cout << "\n\n";
 
 
 
@@ -105,8 +98,16 @@ if(received == true){
 
   memset(BuffPak.Data, 0, 32*sizeof(*BuffPak.Data)); // clear char array || // https://stackoverflow.com/questions/9146395/reset-c-int-array-to-zero-the-fastest-way 
 
-Serial.println("Clearing Array\n");  
+cout << "Clearing Array\n";  
 received = false;
 delay(500);
 }
+}
+
+
+int main(){
+        setup();
+        while(1)
+                loop();
+        return 0;
 }

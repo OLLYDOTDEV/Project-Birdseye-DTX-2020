@@ -13,10 +13,10 @@ const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };
 
 
 typedef struct // only for strings
-{
-   //String Data = "12341234123412341234123412341234";
+{ 
+   String Data = "12341234123412341234123412341234";
    // String Data = "TESTGAMETESTGAMETESTGAMETESTGAME12345TESTGAMETESTGAMETESTGAMETESTGAME12345";
-    String Data = "TESTGAME";
+   // String Data = "TESTGAME";
 }
 DataDef;
 DataDef DataPak;
@@ -84,7 +84,7 @@ void loop() {
   
   if(Error == 0){
    Serial.print("Buff Size: ");
-  Serial.println(sizeof(BuffPak));
+  Serial.println(sizeof(BuffPak.Data));
   
   Serial.print("Sending: ");
   Serial.println(BuffPak.Data);
@@ -96,6 +96,6 @@ radio.writeFast(&BuffPak, sizeof(BuffPak));
  delay(500);
 }else{
 Error = 0;
-delay(5000);
+delay(1000);
 }
 }
