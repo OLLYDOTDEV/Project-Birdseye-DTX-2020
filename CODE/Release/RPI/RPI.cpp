@@ -99,7 +99,7 @@ bool connection = false ;
 // 
 
 void TXF() {
- cout << "\n*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK\n";
+ cout << "\n*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK *** \n";
   radio.stopListening();                  // Stop listening
   delay(10);
   radio.openWritingPipe(pipes[0]);
@@ -108,7 +108,7 @@ void TXF() {
   delay(1000);
 }
 void RXF() {
-  cout << "\n*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK\n" ;
+  cout << "\n*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK ***\n" ;
   delay(10);
   radio.openWritingPipe(pipes[1]);
   radio.openReadingPipe(1, pipes[0]);
@@ -133,7 +133,7 @@ void RECEIVE(){
     Wireless_Receive.Data = TempHeaderData;
 
       if(received == true){   
-        cout << "\nReceived" ;    
+        cout << "\nReceived\n" ;    
         cout << "\nHeader: " ;
         cout << Wireless_Receive.Header ;
         cout << "\nData: " ;
@@ -275,7 +275,8 @@ void ModeInterface(void){
 // will add get code to get modes from websever later 
 
 Header = "ROLE" ;
-Data = "IR"; // some role read from json || do to 
+Data = "IR";  // IR | PIR | ALL | OFF 
+// some role read from json || do to  
 cout << "\n SENDING ROLE \n";
 TRANSMIT(Header,Data);
 }

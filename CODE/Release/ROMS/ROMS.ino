@@ -12,6 +12,8 @@
 
 //  |Config|
 
+string Mode = "OFF";
+
 RF24 radio(10, 9); // Set up nRF24L01 (makes OOP object) || RF24(_cepin _cspin )
 // include needed libraries
 #include <SPI.h>
@@ -102,7 +104,7 @@ Buff_SendDef Buff_Send;
 
 
 void TXF() {
-  Serial.println(F("*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK"));
+  Serial.println(F("*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK *** "));
   radio.stopListening();                  // Stop listening
   delay(10);
   radio.openWritingPipe(pipes[0]);
@@ -111,7 +113,7 @@ void TXF() {
   delay(1000);
 }
 void RXF() {
-  Serial.println(F("*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK"));
+  Serial.println(F("*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK *** "));
   delay(10);
   radio.openWritingPipe(pipes[1]);
   radio.openReadingPipe(1, pipes[0]);
@@ -129,17 +131,43 @@ void RECEIVE(){
          Serial.println("receiving...\n");
         }
              
-    String TempBuffString(Buff_Receive.Data); // This Varible must be declare here so that the String constructor is called
-    Wireless_Receive.Data = TempBuffString;
+    string TempHeaderHeader(Buff_Receive.Header); // This Varible must be declare here so that the string constructor is called
+    Wireless_Receive.Header = TempHeaderHeader; 
+
+    string TempHeaderData(Buff_Receive.Data); // This Varible must be declare here so that the string constructor is called
+    Wireless_Receive.Data = TempHeaderData;
 
     Serial.print("Packet Size: ");
     Serial.println(sizeof(Wireless_Receive));
     Serial.print("Packet Length: ");
     Serial.println(Wireless_Receive.Data.length());  
      
-      if(received == true){       
-        Serial.print("received: ");
+      if(received == true){   
+        Serial.print("Received Header: ");
+        Serial.println(Wireless_Receive.Header);
+
+        Serial.print("Received Data: ");
         Serial.println(Wireless_Receive.Data);
+
+        
+
+       switch(Mode){
+        case "MODE":
+          Mode = Wireless_Receive.Data;
+          securitymode();
+          break;
+        case "STATUS":
+          // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
+          break;
+        default:
+          Serial.println("Invalid Packet") ;  
+      }
+
+
+
+
+
+
         received = false;
        }
   }else{
@@ -257,8 +285,6 @@ if(PacketSizeError == 0){
 }
 
 
-
-
 void Serialread(void) { // Serial override
   if(Serial.available()){
     Serialdata = toupper(Serial.read());
@@ -270,16 +296,15 @@ void Serialread(void) { // Serial override
    }
 }
 
-
-
-
-
 void SendAlert(){ // send alert status
 // for testing setting a valued of trigged 
 TRANSMIT("Alert",Alert_Status);
 }
 
+void  SecurityMode(){
 
+ 
+}
 
 void setup() {
 
@@ -349,7 +374,5 @@ Alert_Status = true; // for testing while sensor code/ hardware is being setup
 if(Alert_Status != Alert_Last_state){ // check for a change
 SendAlert()
 }
-
-
-        
+    
 } // end of loop
