@@ -297,7 +297,7 @@ void Serialread(void) { // Serial override
 
 void SendAlert(){ // send alert status
 // for testing setting a valued of trigged 
-TRANSMIT("Alert",Alert_Status);
+TRANSMIT("ALERT",Alert_Status);
 }
 
 void  SecurityMode(){

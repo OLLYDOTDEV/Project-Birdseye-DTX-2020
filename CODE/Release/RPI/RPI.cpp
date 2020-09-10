@@ -146,14 +146,14 @@ void RECEIVE(){
         case "STATUS":
           // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
           break;
+        case "ALERT":
+          AlertStatus();
+          break;
         default:
           Serial.println("Invalid Packet") ; 
-        
-
-
-
-        received = false;
        }
+        received = false;
+        
   }else{
        delay(100);
       cout << "\nNothing to Read in NRF24 Buffer\n";
@@ -316,9 +316,11 @@ while(connection == false){ // loop until connection is made with other radio
 }
 }
 
-void SendAlert(){
+void AlertStatus(){
 
-  
+// todo 
+// run custom HID script
+
 } 
 
 
