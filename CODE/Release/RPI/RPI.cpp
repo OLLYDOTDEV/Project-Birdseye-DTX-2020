@@ -290,9 +290,17 @@ void ModeInterface(void){
 
 Header = "ROLE" ;
 Data = "IR";  // IR | PIR | ALL | OFF 
+
+if(Header == IR || Header == PIR || Header == ALL ||  Header == OFF ){
 // some role read from json || do to  
 cout << "\n SENDING ROLE \n";
 TRANSMIT(Header,Data);
+}else{
+
+cout << "\n Invalid ROLE \n";
+  
+}
+
 }
 
 void getstatus(){ // checks if ROMS if read to receive
@@ -306,8 +314,12 @@ while(connection == false){ // loop until connection is made with other radio
   connection == true;
   }
 }
-
 }
+
+void SendAlert(){
+
+  
+} 
 
 
 void setup(void) {

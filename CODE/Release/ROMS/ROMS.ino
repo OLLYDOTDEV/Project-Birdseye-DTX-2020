@@ -303,19 +303,21 @@ TRANSMIT("Alert",Alert_Status);
 void  SecurityMode(){
 switch(Mode){
   case "IR":
-  // call IR mode function to be added 
-  break;
+   // call IR mode function to be added 
+   break;
   case "PIR":
-  // call PIR mode function to be added
-  break;  
+   // call PIR mode function to be added
+   break;  
   case "ALL":
-  // call mode that all sensor are in use
-  break;
+   // call mode that all sensor are in use
+   break;
   case "OFF"
-  // disable alert system |do nothing 
+   // disable alert system |do nothing 
+   break;
+  default: 
+  Serial.println("Invalid Mode");
   break;
 
- 
 }
 
 void setup() {
