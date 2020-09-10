@@ -137,7 +137,21 @@ void RECEIVE(){
         cout << "\nHeader: " ;
         cout << Wireless_Receive.Header ;
         cout << "\nData: " ;
-        cout << Wireless_Receive.Data ;        
+        cout << Wireless_Receive.Data ;  
+
+       switch(Wireless_Receive.Header){
+        case "MODE":
+          Mode = Wireless_Receive.Data;
+          break;
+        case "STATUS":
+          // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
+          break;
+        default:
+          Serial.println("Invalid Packet") ; 
+        
+
+
+
         received = false;
        }
   }else{

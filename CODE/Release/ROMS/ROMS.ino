@@ -151,10 +151,9 @@ void RECEIVE(){
 
         
 
-       switch(Mode){
+       switch(Wireless_Receive.Header){
         case "MODE":
           Mode = Wireless_Receive.Data;
-          securitymode();
           break;
         case "STATUS":
           // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
@@ -302,6 +301,19 @@ TRANSMIT("Alert",Alert_Status);
 }
 
 void  SecurityMode(){
+switch(Mode){
+  case "IR":
+  // call IR mode function to be added 
+  break;
+  case "PIR":
+  // call PIR mode function to be added
+  break;  
+  case "ALL":
+  // call mode that all sensor are in use
+  break;
+  case "OFF"
+  // disable alert system |do nothing 
+  break;
 
  
 }
@@ -347,6 +359,10 @@ void setup() {
   // debug
 }
 void loop() {
+
+SecurityMode();
+
+
   Serialread(); // read if there is Serial information | for debug
   // Transmission Mode change
 
