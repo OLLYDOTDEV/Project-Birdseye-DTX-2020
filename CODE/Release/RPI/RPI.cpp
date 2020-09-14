@@ -88,7 +88,7 @@ String Data;
 bool connection = false ;
 
 
-
+string RoleInput;
 
 
 // |---------|
@@ -153,7 +153,7 @@ void RECEIVE(){
           Serial.println("Invalid Packet") ; 
        }
         received = false;
-        
+
   }else{
        delay(100);
       cout << "\nNothing to Read in NRF24 Buffer\n";
@@ -224,7 +224,7 @@ if(PacketSizeError == 0){
          
         TXF();
         receiving = false;
-        return false;
+        return false; // received ack responce 
        }
      }else{
 
@@ -283,30 +283,23 @@ void Serialread(void) { // Serial override
 }
 
 // config for differcnt 
-void ModeInterface(void){
+string ModeInterface(string AugIn){
 
-// read .json file 
-// will add get code to get modes from websever later 
+// Readed from parse command line parameters  
+// will add get code to call modes from websever  
 
 Header = "ROLE" ;
-Data = "IR";  // IR | PIR | ALL | OFF 
+Data = AugIn;  // IR | PIR | ALL | OFF 
 
-if(Header == IR || Header == PIR || Header == ALL ||  Header == OFF ){
-// some role read from json || do to  
 cout << "\n SENDING ROLE \n";
 TRANSMIT(Header,Data);
-}else{
-
-cout << "\n Invalid ROLE \n";
-  
-}
 
 }
 
 void getstatus(){ // checks if ROMS if read to receive
 
 Header = "Status" ;
-Data = "CHECK"; // some role read from json || do to 
+Data = "CHECK"; 
 cout << "\n PINGING... \n";
 
 while(connection == false){ // loop until connection is made with other radio
@@ -325,6 +318,9 @@ void AlertStatus(){
 
 
 void setup(void) {
+  
+  ModeInterface(RoleInput);
+
 
   //Setup and configure rf radio//
   cout << "Initialising embedded software\n" ; // Debug for when the start up function runs
@@ -396,9 +392,24 @@ void loop(void) {
 
 
 
-int main(){
-        setup();
-        while(1)
-                loop();
-        return 0;
-}
+int main(int argc, char* argv[]{
+  
+  // CLI Input Parse
+RoleInput = argv[1];
+
+if(argc == 1 ){
+  if(RoleInput == IR || argv[1] == PIR || argv[1] == ALL || argv[1] == OFF ){ 
+     setup();
+    while(1)
+      loop();
+    return 0;
+   }else{
+     cout << "\n" << "Invalid Role, EXITING!!!"  << "\n" ;
+    }
+   }
+  }else{
+   cout << "\n" << "Please Only Give One Argument, EXITING!!!"  << "\n" ;
+  }
+} 
+// EOF
+

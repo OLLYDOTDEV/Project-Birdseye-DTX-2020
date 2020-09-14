@@ -244,6 +244,7 @@ if(PacketSizeError == 0){
          
         TXF();
         receiving = false;
+        return false;
        }
      }else{
 
@@ -260,6 +261,7 @@ if(PacketSizeError == 0){
           UnsentData == false;
           Transmissiontime = false;
           Transmission_error = 0;
+          return true; // received ack responce 
           }
     
      if(Transmission_error == 0) { // checks if there is a error while transmission of data 
@@ -298,6 +300,19 @@ void Serialread(void) { // Serial override
 void SendAlert(){ // send alert status
 // for testing setting a valued of trigged 
 TRANSMIT("ALERT",Alert_Status);
+}
+
+void getstatus(){ // checks if ROMS if read to receive
+
+Header = "Status" ;
+Data = "CHECK"; // some role read from json || do to 
+cout << "\n PINGING... \n";
+
+while(connection == false){ // loop until connection is made with other radio
+  if(TRANSMIT(Header,Data) == true ){ 
+  connection == true;
+  }
+}
 }
 
 void  SecurityMode(){
