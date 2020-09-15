@@ -144,9 +144,7 @@
             typedef char const char;
 
         #else // Fill in pgm_read_byte that is used, but missing from DUE
-          #ifdef ARDUINO_ARCH_AVR
-            #include <avr/pgmspace.h>
-          #endif
+          #include <avr/pgmspace.h>
           #ifndef pgm_read_byte
             #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
           #endif  
@@ -170,7 +168,7 @@
         #ifndef pgm_read_word
           #define pgm_read_word(p) (*(p))
         #endif
-        #if !defined pgm_read_ptr || defined ARDUINO_ARCH_MBED
+        #ifndef pgm_read_ptr
           #define pgm_read_ptr(p) (*(p))
         #endif
         #ifndef PRIPSTR

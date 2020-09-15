@@ -19,7 +19,7 @@ endif
 include /projects/rf24libs/RF24/Makefile.inc
 
 # define all programs
-PROGRAMS = Communication_NRF24_Test
+PROGRAMS = RPI
 
-include Makefile.examples
-root@kali:/projects/Project
+include /projects/Project-Birdseye-DTX-2020/CODE/libraries/RF24/examples_linux/Makefile.examples
+

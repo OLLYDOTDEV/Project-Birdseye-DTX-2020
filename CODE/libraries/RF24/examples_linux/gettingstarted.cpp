@@ -65,7 +65,8 @@ int main(int argc, char** argv)
 
     // Setup and configure rf radio
     radio.begin();
-
+    radio.setAutoAck(false);	
+    radio.setPALevel(RF24_PA_LOW);
     // optionally, increase the delay between retries & # of retries
     radio.setRetries(15, 15);
     // Dump the configuration of the rf unit for debugging
