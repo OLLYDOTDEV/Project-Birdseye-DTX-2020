@@ -10,10 +10,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
-#include <string>
+#include <cstring>
 #include <unistd.h>
 #include <cstddef>
-
+#include <cctype>
+#include<bits/stdc++.h> 
+#include <algorithm>
 #include <RF24/RF24.h>
 
 using namespace std;
@@ -48,8 +50,8 @@ bool receiving = false;
 // custom data types 
 typedef struct // for Wireless_Receive packet 
 {
-  String Header;
-  String Data; 
+  string Header;
+  string Data; 
   }
 Wireless_ReceiveDef;
 Wireless_ReceiveDef Wireless_Receive;
@@ -68,8 +70,8 @@ Buff_ReceiveDef Buff_Receive;
 
 typedef struct // for Wireless_Send packet 
 {
-  String Header;
-  String Data; 
+  string Header;
+  string Data; 
   }
 Wireless_SendDef;
 Wireless_SendDef Wireless_Send;
@@ -82,14 +84,14 @@ typedef struct // for Wireless_Send Buffer
 Buff_SendDef;
 Buff_SendDef Buff_Send;
 
-String Header; 
-String Data;
+string Header; 
+string Data;
 
 bool connection = false ;
 
 
 string RoleInput;
-
+string Mode;
 
 // |---------|
 // |Functions|
@@ -117,6 +119,13 @@ void RXF() {
   delay(1000);
 }
 
+void AlertStatus(){
+
+// todo 
+// run custom HID script
+
+} 
+
 void RECEIVE(){
 
  if(radio.available()) { // if there is information get prep for incomming otherwise 
@@ -139,42 +148,46 @@ void RECEIVE(){
         cout << "\nData: " ;
         cout << Wireless_Receive.Data ;  
 
-       switch(Wireless_Receive.Header){
-        case "MODE":
-          Mode = Wireless_Receive.Data;
-          break;
-        case "STATUS":
-          // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
-          break;
-        case "ALERT":
-          AlertStatus();
-          break;
-        default:
-          Serial.println("Invalid Packet") ; 
-       }
-        received = false;
+
+ 
+  if(Wireless_Receive.Header == "MODE"){
+    Mode = Wireless_Receive.Data;
+   }else if(Wireless_Receive.Header == "STATUS") {
+    // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
+   }else if(Wireless_Receive.Header == "ALERT"){
+     AlertStatus();
+   }else{
+    cout << "\nInvalid Packet\n" ; 
+   }
+ received = false;
+
 
   }else{
        delay(100);
       cout << "\nNothing to Read in NRF24 Buffer\n";
        }   
 }
-
+}
 bool TRANSMIT(string header, string data ){ // returns `true` if transmission successfully  
 
-Wireless_Send.Header = toupper(header) ;
-Wireless_Send.Data = toupper(data) ;
+
+
+
+
+
+Wireless_Send.Header =::toupper(Wireless_Send.Header));
+Wireless_Send.Data = ::toupper());
 
 
  cout << "\nChecking Packet Integrity\n"; 
  // Checking for errors the packet that is to be sent
- if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data)|| Wireless_Send.Header.length() <= sizeof(Wireless_Send.Header))){ // Stop overloading Char array with to large sized string
+ if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data)|| Wireless_Send.Header.length() <= sizeof(Wireless_Send.Header)){ // Stop overloading Char array with to large sized string
  
-     for (byte i = 0;i <= Wireless_Send.Header.length(); i++) {
+     for (int i = 0;i <= Wireless_Send.Header.length(); i++) {
     Buff_Send.Header[i] = Wireless_Send.Header[i]; // String to char Array  
    }
   
-   for (byte i = 0;i <= Wireless_Send.Data.length(); i++) {
+   for (int i = 0;i <= Wireless_Send.Data.length(); i++) {
     Buff_Send.Data[i] = Wireless_Send.Data[i]; // String to char Array  
    }
 
@@ -304,18 +317,10 @@ cout << "\n PINGING... \n";
 
 while(connection == false){ // loop until connection is made with other radio
   if(TRANSMIT(Header,Data) == true ){ 
-  connection == true;
+  connection = true;
   }
 }
 }
-
-void AlertStatus(){
-
-// todo 
-// run custom HID script
-
-} 
-
 
 void setup(void) {
   
@@ -392,13 +397,13 @@ void loop(void) {
 
 
 
-int main(int argc, char* argv[]{
+int main(int argc, char* argv[]){
   
   // CLI Input Parse
 RoleInput = argv[1];
 
 if(argc == 1 ){
-  if(RoleInput == IR || argv[1] == PIR || argv[1] == ALL || argv[1] == OFF ){ 
+  if(RoleInput == "IR" || RoleInput == "PIR"|| RoleInput == "ALL" || RoleInput == "OFF" ){ 
      setup();
     while(1)
       loop();
@@ -406,8 +411,7 @@ if(argc == 1 ){
    }else{
      cout << "\n" << "Invalid Role, EXITING!!!"  << "\n" ;
     }
-   }
-  }else{
+   }else{
    cout << "\n" << "Please Only Give One Argument, EXITING!!!"  << "\n" ;
   }
 } 
