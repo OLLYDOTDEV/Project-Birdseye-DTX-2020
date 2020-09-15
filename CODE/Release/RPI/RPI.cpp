@@ -174,11 +174,6 @@ bool TRANSMIT(string header, string data ){ // returns `true` if transmission su
 
 
 
-
-Wireless_Send.Header =::toupper(Wireless_Send.Header));
-Wireless_Send.Data = ::toupper());
-
-
  cout << "\nChecking Packet Integrity\n"; 
  // Checking for errors the packet that is to be sent
  if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data)|| Wireless_Send.Header.length() <= sizeof(Wireless_Send.Header)){ // Stop overloading Char array with to large sized string
@@ -192,6 +187,15 @@ Wireless_Send.Data = ::toupper());
    }
 
   
+  for (int i=0; i<strlen(Buff_Send.Header); i++)
+        putchar(toupper(Buff_Send.Header[i]));
+
+  for (int i=0; i<strlen(Buff_Send.Data); i++)
+        putchar(toupper(Buff_Send.Data[i]));
+
+
+
+
   
  }else{
       PacketSizeError = 1;
@@ -398,22 +402,31 @@ void loop(void) {
 
 
 int main(int argc, char* argv[]){
-  
-  // CLI Input Parse
-RoleInput = argv[1];
 
-if(argc == 1 ){
+       cout << "\n Checking inputed arguments\n";   
+
+for (int i = 0; i < argc; ++i) { 
+       cout << "\n Argument"<< i << ": "<< argv[i] << "\n"; 
+}
+
+cout << "\n Total of: " << argc <<  " arguments \n";   
+
+//  CLI Input Parse
+
+cout << "test";
+if(argc == 2 ){
+  RoleInput = argv[1];
   if(RoleInput == "IR" || RoleInput == "PIR"|| RoleInput == "ALL" || RoleInput == "OFF" ){ 
-     setup();
-    while(1)
-      loop();
-    return 0;
+    setup();
+    while(1){
+     loop();
+    }
    }else{
      cout << "\n" << "Invalid Role, EXITING!!!"  << "\n" ;
     }
-   }else{
-   cout << "\n" << "Please Only Give One Argument, EXITING!!!"  << "\n" ;
-  }
+ }else{
+  cout << "\n" << "Please Only Give One Argument, EXITING!!!" << "\n" ;
+ }
 } 
-// EOF
+//EOF
 
