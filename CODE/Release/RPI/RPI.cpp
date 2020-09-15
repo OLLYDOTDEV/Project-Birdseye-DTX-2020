@@ -328,7 +328,7 @@ while(connection == false){ // loop until connection is made with other radio
 
 void setup(void) {
   
-  ModeInterface(RoleInput);
+  
 
 
   //Setup and configure rf radio//
@@ -368,7 +368,7 @@ void setup(void) {
   cout << "\nInitialising Main Program\n";
   cout << "Defaulting RECEIVE State\n";
 
-
+ModeInterface(RoleInput);
   delay(1000);
 
   // debug
@@ -404,11 +404,9 @@ void loop(void) {
 int main(int argc, char* argv[]){
 
        cout << "\n Checking inputed arguments\n";   
-
 for (int i = 0; i < argc; ++i) { 
        cout << "\n Argument"<< i << ": "<< argv[i] << "\n"; 
 }
-
 cout << "\n Total of: " << argc <<  " arguments \n";   
 
 //  CLI Input Parse
