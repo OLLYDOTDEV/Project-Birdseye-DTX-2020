@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <cstddef>
 #include <cctype>
-#include<bits/stdc++.h> 
+#include <bits/stdc++.h> 
 #include <algorithm>
 #include <RF24/RF24.h>
 
@@ -84,6 +84,8 @@ typedef struct // for Wireless_Send Buffer
 Buff_SendDef;
 Buff_SendDef Buff_Send;
 
+
+
 string Header; 
 string Data;
 
@@ -101,7 +103,7 @@ string Mode;
 // 
 
 void TXF() {
- cout << "\n*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK *** \n";
+ cout << "\n*** CHANGING TO TRANSMIT ROLE *** \n";
   radio.stopListening();                  // Stop listening
   delay(10);
   radio.openWritingPipe(pipes[0]);
@@ -110,7 +112,7 @@ void TXF() {
   delay(1000);
 }
 void RXF() {
-  cout << "\n*** CHANGING TO RECEIVE ROLE -- PRESS 'T' TO SWITCH BACK ***\n" ;
+  cout << "\n*** CHANGING TO RECEIVE ROLE ***\n" ;
   delay(10);
   radio.openWritingPipe(pipes[1]);
   radio.openReadingPipe(1, pipes[0]);
@@ -127,7 +129,7 @@ void AlertStatus(){
 } 
 
 void RECEIVE(){
-
+RXF();
  if(radio.available()) { // if there is information get prep for incomming otherwise 
     while(radio.available()){ // loop to read all the information in FIFO BUS
          radio.read(&Buff_Receive,sizeof(Buff_Receive));   
@@ -169,31 +171,38 @@ void RECEIVE(){
 }
 }
 bool TRANSMIT(string header, string data ){ // returns `true` if transmission successfully  
+ TXF();
+ cout << "\nInitialising Transmission Sequence";
+Wireless_Send.Header = header;
+Wireless_Send.Data = data;
 
+cout << "\nReceived Header Input: " << Wireless_Send.Header;
+cout << "\nReceived Data Input: " << Wireless_Send.Data;
 
-
-
-
- cout << "\nChecking Packet Integrity\n"; 
+ cout << "\n\nChecking Packet Integrity\n"; 
  // Checking for errors the packet that is to be sent
  if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data)|| Wireless_Send.Header.length() <= sizeof(Wireless_Send.Header)){ // Stop overloading Char array with to large sized string
  
-     for (int i = 0;i <= Wireless_Send.Header.length(); i++) {
+     for (unsigned int i = 0;i <= Wireless_Send.Header.length(); i++) {
     Buff_Send.Header[i] = Wireless_Send.Header[i]; // String to char Array  
    }
   
-   for (int i = 0;i <= Wireless_Send.Data.length(); i++) {
+   for (unsigned int i = 0;i <= Wireless_Send.Data.length(); i++) {
     Buff_Send.Data[i] = Wireless_Send.Data[i]; // String to char Array  
    }
 
-  
-  for (int i=0; i<strlen(Buff_Send.Header); i++)
-        putchar(toupper(Buff_Send.Header[i]));
+  cout << "\nCapitalising...\n";
 
-  for (int i=0; i<strlen(Buff_Send.Data); i++)
-        putchar(toupper(Buff_Send.Data[i]));
+  for (unsigned int i=0; i<strlen(Buff_Send.Header); i++)
+     Buff_Send.Header[i] = toupper(Buff_Send.Header[i]);
 
+  for (unsigned int i=0; i<strlen(Buff_Send.Data); i++)
+     Buff_Send.Data[i] = toupper(Buff_Send.Data[i]);
 
+cout << "\nNew Buffer value Set";
+
+cout << "\nHeader: " << Buff_Send.Header;
+cout << "\nData: " << Buff_Send.Data;
 
 
   
@@ -204,7 +213,7 @@ bool TRANSMIT(string header, string data ){ // returns `true` if transmission su
       cout << "\n\n\n" ;
       }
     
- if(sizeof(Buff_Send)> 32){ // add check for length of all varible in Datapak and make sure they are also under 32 
+ if(sizeof(Buff_Send)> 32){ // add check for length of all varible in Datapack and make sure they are also under 32 
    PacketSizeError = 1;
    cout << "Buff Size: " ;
    cout << sizeof(Buff_Send) ;
@@ -241,15 +250,12 @@ if(PacketSizeError == 0){
          
         TXF();
         receiving = false;
-        return false; // received ack responce 
+     return false; // received ack responce 
        }
      }else{
 
           cout << "\nTransmitted header: ";
           cout << Wireless_Send.Header;
-          cout << "\n"; 
-
-
           cout << "\nTransmitted data: ";
           cout << Wireless_Send.Data ;
           cout << "\n";
@@ -257,7 +263,8 @@ if(PacketSizeError == 0){
           UnsentData = false;
           Transmissiontime = false;
           Transmission_error = 0;
-          return true;
+          RXF();
+       return true;
           }
     
      if(Transmission_error == 0) { // checks if there is a error while transmission of data 
@@ -300,7 +307,7 @@ void Serialread(void) { // Serial override
 }
 
 // config for differcnt 
-string ModeInterface(string AugIn){
+void ModeInterface(string AugIn){
 
 // Readed from parse command line parameters  
 // will add get code to call modes from websever  
@@ -309,6 +316,8 @@ Header = "ROLE" ;
 Data = AugIn;  // IR | PIR | ALL | OFF 
 
 cout << "\n SENDING ROLE \n";
+cout << "\n value:" << AugIn <<"\n";
+
 TRANSMIT(Header,Data);
 
 }
@@ -359,7 +368,7 @@ void setup(void) {
 
   cout << "\nAttempting to establish connection\n";
   
-  getstatus();
+//  getstatus();
   
   cout << "\nConnection Established \n\n\n";
 
@@ -368,31 +377,14 @@ void setup(void) {
   cout << "\nInitialising Main Program\n";
   cout << "Defaulting RECEIVE State\n";
 
-ModeInterface(RoleInput);
+
   delay(1000);
 
   // debug
 }
 void loop(void) {
-  Serialread(); // read if there is Serial information
-  
-  // -// Transmission Mode change
-  // if(UnsentData == true){ // Looks if there is data that needs to be tranmitted
-  //    if(Role == TX){
-  //    // do nothing as it will send data anyway also dont reset connect to other radio
-  //    }else{
-  //         TXF(); // makesure role to TX so that it can set
-  //         }
-  //  }
 
-  // //TX
-  // if(Role == TX){
-  //   TRANSMIT();
-  //  } // TX END
-  // //RX
-  // else if(Role == RX){
-  //       RECEIVE();
-  //       } 
+ ModeInterface(RoleInput);
 
 
 } // end of loop
@@ -403,7 +395,7 @@ void loop(void) {
 
 int main(int argc, char* argv[]){
 
-       cout << "\n Checking inputed arguments\n";   
+       cout << "\n Checking inpted arguments\n";   
 for (int i = 0; i < argc; ++i) { 
        cout << "\n Argument"<< i << ": "<< argv[i] << "\n"; 
 }
@@ -411,7 +403,7 @@ cout << "\n Total of: " << argc <<  " arguments \n";
 
 //  CLI Input Parse
 
-cout << "test";
+
 if(argc == 2 ){
   RoleInput = argv[1];
   if(RoleInput == "IR" || RoleInput == "PIR"|| RoleInput == "ALL" || RoleInput == "OFF" ){ 
@@ -427,4 +419,5 @@ if(argc == 2 ){
  }
 } 
 //EOF
+
 
