@@ -12,7 +12,7 @@
 
 //  |Config|
 
-string Mode = "OFF";
+String Mode = "OFF";
 
 RF24 radio(10, 9); // Set up nRF24L01 (makes OOP object) || RF24(_cepin _cspin )
 // include needed libraries
@@ -35,7 +35,7 @@ bool Transmissiontime = false; // true means that the radio has been trying to t
 
 //---------
 bool Alert_Last_state ;
-bool Alert_Status;
+String  Alert_Status;
 
 //---------
 bool UnsentData = false;
@@ -83,9 +83,9 @@ Buff_SendDef;
 Buff_SendDef Buff_Send;
 
 
+String Header;
 
-
-
+String Data;
 
 
 
@@ -96,12 +96,6 @@ Buff_SendDef Buff_Send;
 // |---------|
 // |Functions|
 // |---------|
-
-
-// 
-
-// Role change
-
 
 void TXF() {
   Serial.println(F("*** CHANGING TO TRANSMIT ROLE -- PRESS 'R' TO SWITCH BACK *** "));
@@ -123,7 +117,10 @@ void RXF() {
 }
 
 void RECEIVE(){
-
+if(Role == TX){
+    RXF();
+   } 
+   
  if(radio.available()) { // if there is information get prep for incomming otherwise 
     while(radio.available()){ // loop to read all the information in FIFO BUS
          radio.read(&Buff_Receive,sizeof(Buff_Receive));   
@@ -131,42 +128,29 @@ void RECEIVE(){
          Serial.println("receiving...\n");
         }
              
-    string TempHeaderHeader(Buff_Receive.Header); // This Varible must be declare here so that the string constructor is called
-    Wireless_Receive.Header = TempHeaderHeader; 
+    String TempHeader(Buff_Receive.Header); // This Varible must be declare here so that the String constructor is called
+    Wireless_Receive.Header = TempHeader; 
 
-    string TempHeaderData(Buff_Receive.Data); // This Varible must be declare here so that the string constructor is called
-    Wireless_Receive.Data = TempHeaderData;
+    String TempData(Buff_Receive.Data); // This Varible must be declare here so that the String constructor is called
+    Wireless_Receive.Data = TempData;
 
-    Serial.print("Packet Size: ");
-    Serial.println(sizeof(Wireless_Receive));
-    Serial.print("Packet Length: ");
-    Serial.println(Wireless_Receive.Data.length());  
-     
-      if(received == true){   
+        if(received == true){   
         Serial.print("Received Header: ");
         Serial.println(Wireless_Receive.Header);
 
         Serial.print("Received Data: ");
         Serial.println(Wireless_Receive.Data);
 
-        
-
-       switch(Wireless_Receive.Header){
-        case "MODE":
+        if(Wireless_Receive.Header == "MODE"){
           Mode = Wireless_Receive.Data;
-          break;
-        case "STATUS":
-          // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
-          break;
-        default:
-          Serial.println("Invalid Packet") ;  
-      }
+           Serial.print("Received a Mode Packet");
+          }else if( Wireless_Receive.Header == "PING"){
 
-
-
-
-
-
+                    Serial.print("Received a Ping Packet\n");
+      // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
+      }else{
+              Serial.println("Invalid Packet") ;  
+        }
         received = false;
        }
   }else{
@@ -175,92 +159,108 @@ void RECEIVE(){
        }   
 }
 
-void TRANSMIT(string header, string data ){
+void TRANSMIT(String header, String data ){ // returns `true` if transmission successfully  
 
-Wireless_Send.Header = toupper(header) ;
-Wireless_Send.Data = toupper(data) ;
-
-
- // Wireless_Send.Data = "12341234123412341234123412341234"; // Set Max length temp data for testing
+  if(Role == RX){
+    TXF();
+   } 
 
 
- Serial.println("\nChecking Packet Integrity"); 
+ Serial.println("\nInitialising Transmission Sequence");
+Wireless_Send.Header = header;
+Wireless_Send.Data = data;
+
+ Serial.print( "\nReceived Header Input: ") ;
+  Serial.println(Wireless_Send.Header);
+ Serial.print("\nReceived Data Input: ");
+  Serial.println(Wireless_Send.Data);
+
+ Serial.println( "\n\nChecking Packet Integrity\n"); 
  // Checking for errors the packet that is to be sent
- if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data) || Wireless_Send.header.length() <= sizeof(Wireless_Send.Data)){ // Stop overloading Char array with to large sized string
-  
-     for (byte i = 0;i <= Wireless_Send.Header.length(); i++) {
+ if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data) && Wireless_Send.Header.length() <= sizeof(Buff_Send.Header)){ // Stop overloading Char array with to large sized string
+ 
+     for (unsigned int i = 0;i <= Wireless_Send.Header.length(); i++) {
     Buff_Send.Header[i] = Wireless_Send.Header[i]; // String to char Array  
    }
   
-   for (byte i = 0;i <= Wireless_Send.Data.length(); i++) {
+   for (unsigned int i = 0;i <= Wireless_Send.Data.length(); i++) {
     Buff_Send.Data[i] = Wireless_Send.Data[i]; // String to char Array  
    }
 
+   Serial.print("\nCapitalising...\n");
+
+  for (unsigned int i=0; i<strlen(Buff_Send.Header); i++)
+     Buff_Send.Header[i] = toupper(Buff_Send.Header[i]);
+
+  for (unsigned int i=0; i<strlen(Buff_Send.Data); i++)
+     Buff_Send.Data[i] = toupper(Buff_Send.Data[i]);
+
+ Serial.println("\nNew Buffer value Set");
+
+ Serial.print("\nHeader: ");
+  Serial.println(Buff_Send.Header);
+  Serial.println( "\nData: "); 
+ Serial.println(Buff_Send.Data);
 
 
- 
   
  }else{
       PacketSizeError = 1;
-      Serial.println("\n\n\n");
-      Serial.println("Warning failed to convert string to array: String to large, please make sure that the String is smaller then char array ");
-      Serial.println("\n\n\n");
+      Serial.println( "\n\n\n Warning failed to convert string to array: string to large, please make sure that the string is smaller then char array \n\n\n" );
+
       }
     
- if(sizeof(Buff_Send)> 32){ // add check for length of all varible in Datapak and make sure they are also under 32 
+ if(sizeof(Buff_Send)> 32){ // add check for length of all varible in Datapack and make sure they are also under 32 
    PacketSizeError = 1;
-   Serial.print("Buff Size: ");
-   Serial.println(sizeof(Buff_Send));
-   Serial.println("Failed to Send, Data Structure to Large");
+   Serial.print("Buff Size: ") ;
+    Serial.println(sizeof(Buff_Send)) ;
+  Serial.println( "Failed to Send, Data Structure to Large\n") ;
   }
 
   
 if(PacketSizeError == 0){
   
-  Serial.println("\nPacket Integrity Verified \n\nTransmitting..."); 
+ Serial.println("\nPacket Integrity Verified \n\nTransmitting...") ; 
   // handles transmission errors
   if(Transmission_error > 9){ // if error count great then 10 reset value
     Transmission_error = 0; 
    }
   if(Transmission_error == 0){
     startTime = millis();
-    Transmissiontime == false;
+    Transmissiontime = false;
    }
     // Sends data to Radio and then give feedback
    if(!radio.write(&Buff_Send, sizeof(Buff_Send))) { //Write to the FIFO buffers, also useds dynamic payload size
      Transmission_error++;                      //Keep count of failed payloads
 
-     Serial.print("Transmission error number: ");
-     Serial.println(Transmission_error); 
+      Serial.print(  "\nTransmission error number: ") ;
+     Serial.println( Transmission_error ); 
 
      if( Transmission_error > 9 || Transmissiontime == true){ // keeps trying to send data for 5 seconds
-       Serial.println("\nChecking if other Radio is Transmitting ");
+      Serial.print( "\nChecking if other Radio is Transmitting ") ;
        RXF(); // change to 
-    
+        delay(10);
        if(radio.available()){
-         Serial.println("other radio transmitting waiting for available transmission slot");
+          Serial.println( "\nother radio transmitting waiting for available transmission slot" );
          RECEIVE();
         }
          
         TXF();
         receiving = false;
-        return false;
+        return false; // didnt get ack responce 
        }
      }else{
 
+          Serial.print( "\nTransmitted header: ");
+           Serial.println( Wireless_Send.Header);
+           Serial.print("\nTransmitted data: ");
+           Serial.println(Wireless_Send.Data) ;
 
-          Serial.print("Transmitted header: ");
-          Serial.println(Wireless_Send.Header);
-          Serial.print("\n"); 
-
-
-          Serial.print("Transmitted data: ");
-          Serial.println(Wireless_Send.Data);
-          Serial.print("\n");
           // Resets values for next Transmission
-          UnsentData == false;
+          UnsentData = false;
           Transmissiontime = false;
           Transmission_error = 0;
+          RXF();
           return true; // received ack responce 
           }
     
@@ -272,10 +272,11 @@ if(PacketSizeError == 0){
            
            if( stopTime - startTime  > 5000){ // did time to send take longer then 5 seconds
              delay(100);
-             Serial.print("Time Taken: ");
-             Serial.println(stopTime - startTime );
-             Serial.println("Transmition is taking too long");
+            Serial.println( "\nTime Taken: " );
+             Serial.println( stopTime - startTime );
+              Serial.println( "\nTransmition is taking too long") ;
              Transmissiontime = true;
+              return false; // didnt get ack responce 
              }
             }
   
@@ -284,6 +285,7 @@ if(PacketSizeError == 0){
       delay(1000);
      }
 }
+
 
 
 void Serialread(void) { // Serial override
@@ -297,45 +299,35 @@ void Serialread(void) { // Serial override
    }
 }
 
+
+void SecurityMode(){
+
+if(Mode == "IR"){
+  Serial.println("Mode Set To IR");
+  // call IR mode function to be added 
+}else if(Mode == "PIR"){
+  Serial.println("Mode Set To PIR");
+     // call PIR mode function to be added
+}else if(Mode == "ALL"){
+  Serial.println("Mode Set To ALL");
+     // call mode that all sensor are in use
+}else if(Mode == "OFF"){
+  Serial.println("Mode Set To OFF");
+  // disable alert system |do nothing 
+}else{
+Serial.println("Invalid Mode");  
+}
+}
+
 void SendAlert(){ // send alert status
 // for testing setting a valued of trigged 
+
 TRANSMIT("ALERT",Alert_Status);
-}
-
-void getstatus(){ // checks if ROMS if read to receive
-
-Header = "Status" ;
-Data = "CHECK"; // some role read from json || do to 
-cout << "\n PINGING... \n";
-
-while(connection == false){ // loop until connection is made with other radio
-  if(TRANSMIT(Header,Data) == true ){ 
-  connection == true;
-  }
-}
-}
-
-void  SecurityMode(){
-switch(Mode){
-  case "IR":
-   // call IR mode function to be added 
-   break;
-  case "PIR":
-   // call PIR mode function to be added
-   break;  
-  case "ALL":
-   // call mode that all sensor are in use
-   break;
-  case "OFF"
-   // disable alert system |do nothing 
-   break;
-  default: 
-  Serial.println("Invalid Mode");
-  break;
 
 }
 
-void setup() {
+
+void setup(){
 
   //Setup and configure rf radio//
 
@@ -374,38 +366,11 @@ void setup() {
   delay(1000);
 
   // debug
+Alert_Status = "OFF";
 }
-void loop() {
+void loop(void) {
 
-SecurityMode();
-
-
-  Serialread(); // read if there is Serial information | for debug
-  // Transmission Mode change
-
-
-
-  if(UnsentData == true){ // Looks if there is data that needs to be tranmitted
-     if(Role == TX){
-     // do nothing as it will send data anyway also dont reset connect to other radio
-     }else{
-          TXF(); // makesure role to TX so that it can set
-          }
-   }
-// check role 
-  //TX
-  if(Role == TX){
-    TRANSMIT();
-   } // TX END
-  //RX
-  else if(Role == RX){
-        RECEIVE();
-        } 
-// end of role check 
-
-Alert_Status = true; // for testing while sensor code/ hardware is being setup
-if(Alert_Status != Alert_Last_state){ // check for a change
-SendAlert()
-}
-    
+SendAlert();
+RECEIVE();
+delay(1000);
 } // end of loop

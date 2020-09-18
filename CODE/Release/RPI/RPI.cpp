@@ -129,19 +129,22 @@ void AlertStatus(){
 } 
 
 void RECEIVE(){
-RXF();
+  if(Role == TX){
+    RXF();
+   } 
+ 
  if(radio.available()) { // if there is information get prep for incomming otherwise 
     while(radio.available()){ // loop to read all the information in FIFO BUS
          radio.read(&Buff_Receive,sizeof(Buff_Receive));   
          received = true;
          cout << "\nreceiving...\n" ;
         }
+             
+    string TempHeader(Buff_Receive.Header); // This Varible must be declare here so that the string constructor is called
+    Wireless_Receive.Header = TempHeader; 
 
-    string TempHeaderHeader(Buff_Receive.Header); // This Varible must be declare here so that the string constructor is called
-    Wireless_Receive.Header = TempHeaderHeader; 
-
-    string TempHeaderData(Buff_Receive.Data); // This Varible must be declare here so that the string constructor is called
-    Wireless_Receive.Data = TempHeaderData;
+    string TempData(Buff_Receive.Data); // This Varible must be declare here so that the string constructor is called
+    Wireless_Receive.Data = TempData;
 
       if(received == true){   
         cout << "\nReceived\n" ;    
@@ -149,9 +152,8 @@ RXF();
         cout << Wireless_Receive.Header ;
         cout << "\nData: " ;
         cout << Wireless_Receive.Data ;  
+     
 
-
- 
   if(Wireless_Receive.Header == "MODE"){
     Mode = Wireless_Receive.Data;
    }else if(Wireless_Receive.Header == "STATUS") {
@@ -161,17 +163,23 @@ RXF();
    }else{
     cout << "\nInvalid Packet\n" ; 
    }
- received = false;
 
-
+   received = false;
   }else{
        delay(100);
       cout << "\nNothing to Read in NRF24 Buffer\n";
        }   
+ }
 }
-}
+
+
 bool TRANSMIT(string header, string data ){ // returns `true` if transmission successfully  
- TXF();
+
+  if(Role == RX){
+    TXF();
+   } 
+
+
  cout << "\nInitialising Transmission Sequence";
 Wireless_Send.Header = header;
 Wireless_Send.Data = data;
@@ -181,7 +189,7 @@ cout << "\nReceived Data Input: " << Wireless_Send.Data;
 
  cout << "\n\nChecking Packet Integrity\n"; 
  // Checking for errors the packet that is to be sent
- if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data)|| Wireless_Send.Header.length() <= sizeof(Wireless_Send.Header)){ // Stop overloading Char array with to large sized string
+ if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data) && Wireless_Send.Header.length() <= sizeof(Buff_Send.Header)){ // Stop overloading Char array with to large sized string
  
      for (unsigned int i = 0;i <= Wireless_Send.Header.length(); i++) {
     Buff_Send.Header[i] = Wireless_Send.Header[i]; // String to char Array  
@@ -250,7 +258,7 @@ if(PacketSizeError == 0){
          
         TXF();
         receiving = false;
-     return false; // received ack responce 
+        return false; // didnt get ack responce 
        }
      }else{
 
@@ -264,7 +272,7 @@ if(PacketSizeError == 0){
           Transmissiontime = false;
           Transmission_error = 0;
           RXF();
-       return true;
+          return true; // received ack responce 
           }
     
      if(Transmission_error == 0) { // checks if there is a error while transmission of data 
@@ -279,6 +287,7 @@ if(PacketSizeError == 0){
              cout << stopTime - startTime ;
              cout << "\nTransmition is taking too long" ;
              Transmissiontime = true;
+              return false; // didnt get ack responce 
              }
             }
   
@@ -324,7 +333,7 @@ TRANSMIT(Header,Data);
 
 void getstatus(){ // checks if ROMS if read to receive
 
-Header = "Status" ;
+Header = "PING" ;
 Data = "CHECK"; 
 cout << "\n PINGING... \n";
 
@@ -368,14 +377,17 @@ void setup(void) {
 
   cout << "\nAttempting to establish connection\n";
   
-//  getstatus();
+ getstatus();
   
   cout << "\nConnection Established \n\n\n";
 
   delay(500);
 
   cout << "\nInitialising Main Program\n";
-  cout << "Defaulting RECEIVE State\n";
+ 
+ModeInterface(RoleInput);
+
+  cout << "Defaulting To RECEIVE State\n";
 
 
   delay(1000);
@@ -384,9 +396,8 @@ void setup(void) {
 }
 void loop(void) {
 
- ModeInterface(RoleInput);
-
-
+RECEIVE();
+delay(500);
 } // end of loop
 
    
