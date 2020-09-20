@@ -1,0 +1,33 @@
+ /* center page */
+html{
+
+margin-top:15%;
+
+/* table */
+}
+table, td{
+border-style: solid;
+border-collapse: collapse;
+font-family: "Lucida Console", Courier, monospace;
+text-align:center;
+}
+td{
+    padding: 10px;
+        border: 5px solid black;
+        border-collapse: collapse;
+}
+/* Title */
+.control{
+font-size:50px;
+}
+/* link stuff */
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+
+.tooltiptext{
+    font-size:10px
+}
