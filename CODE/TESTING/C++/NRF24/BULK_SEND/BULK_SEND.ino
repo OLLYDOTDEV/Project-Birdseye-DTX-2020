@@ -21,7 +21,7 @@ typedef struct // only for strings
 DataDef;
 DataDef DataPak;
 
-
+  
 
 
 typedef struct   // max of 32 Char objects with in this struct as the NRF24 radio and only send 32 bytes
