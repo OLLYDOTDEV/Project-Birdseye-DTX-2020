@@ -44,7 +44,14 @@ function home(){
 
 echo'
 <script>
-window.location.href = "index.php";
+
+function pagechange(){
+    setTimeout(function() { 
+        window.location.href = "index.php";
+    }, 5000); 
+}
+
+pagechange()
 </script>
 ' ;
 }
