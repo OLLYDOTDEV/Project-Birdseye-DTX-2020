@@ -1,4 +1,4 @@
- 
+     
 /*
   Date 2020/8/20
   Title: ROMS 4 release v1
@@ -32,10 +32,6 @@ unsigned long startTime, stopTime;
 
 bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
 
-
-//---------
-bool Alert_Last_state ;
-String  Alert_Status;
 
 //---------
 bool UnsentData = false;
@@ -87,9 +83,27 @@ String Header;
 
 String Data;
 
+// Sensor Variblers 
 
-
-
+#include "Smooth.h"
+   // count variable 
+      int _ValuecCount = 0;           // count first amount of values while less then StartSkip
+    int _StartSkip = 11;            // amount for ^^^ to skip
+  // IR variables
+  bool IR_Status = 0;
+  int IR_DATA = 1000 ;
+  int IR_Threshold = 700 ;
+  int IR_OUT = A3; // connect ir sensor to arduino pin 2
+  bool IR_Enabled;
+  // PIR variables
+  bool Pir_Status = 0;
+  bool Pir_Data = 0;
+  int Pir_Out = 4;
+  bool Pir_Enabled;
+  // general sensor variables 
+ String  Alert_Status;
+  int calibration_trigger = 1; // 1 = calibration mode on | 0 = calibration mode off
+ AnalogSmooth IRsensor; // contruct an object with the custom smooth OOP class
 
 
 
@@ -143,9 +157,9 @@ if(Role == TX){
 
         if(Wireless_Receive.Header == "MODE"){
           Mode = Wireless_Receive.Data;
+          SecurityMode();
            Serial.print("Received a Mode Packet");
           }else if( Wireless_Receive.Header == "PING"){
-
                     Serial.print("Received a Ping Packet\n");
       // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
       }else{
@@ -303,28 +317,91 @@ void Serialread(void) { // Serial override
 void SecurityMode(){
 
 if(Mode == "IR"){
-  Serial.println("Mode Set To IR");
-  // call IR mode function to be added 
+    // enable only IR sensors
+       IR_Enabled = true;
+       Pir_Enabled = false; 
 }else if(Mode == "PIR"){
-  Serial.println("Mode Set To PIR");
-     // call PIR mode function to be added
+     // enable only PIR sensors
+       IR_Enabled = false;
+       Pir_Enabled = true;
 }else if(Mode == "ALL"){
-  Serial.println("Mode Set To ALL");
-     // call mode that all sensor are in use
+     // enable all sensors
+       IR_Enabled = true;
+       Pir_Enabled = true;
 }else if(Mode == "OFF"){
-  Serial.println("Mode Set To OFF");
-  // disable alert system |do nothing 
+  // disable alert system do nothing 
+      IR_Enabled = false;
+      Pir_Enabled = false;
 }else{
 Serial.println("Invalid Mode");  
 }
+Serial.print("\n\n\nSet mode to:");
+Serial.print(Mode);
+Serial.print("\n\n\n");
+delay(2000);
 }
 
-void SendAlert(){ // send alert status
-// for testing setting a valued of trigged 
 
-TRANSMIT("ALERT",Alert_Status);
 
+// sersor debug functions 
+void SensorValueDebug(){ 
+  // value debug
+Serial.println("\n");
+Serial.print("IR Data: ");
+Serial.println(IR_DATA);
+Serial.print("PIR Data: ");
+Serial.println(Pir_Data);
 }
+void SensorAlertDebug(){
+// alert debug
+Serial.println("\n");
+Serial.print("IR Status: ");
+Serial.println(IR_Status);
+Serial.print("PIR Status: ");
+Serial.println(Pir_Status);
+Serial.print("\nAlert_Status: ");
+Serial.println(Alert_Status);
+}
+
+void GetSensorData(){
+
+
+if(IR_Enabled == true){ // check if subsystem is allowed to read this sensor's data
+// IR code 
+if(_ValuecCount < _StartSkip){
+  IRsensor.Smooth(IR_OUT); // triggers method but doesnt assign output to variable
+ Serial.print("Skipping start value number:");
+ Serial.println(_ValuecCount);
+ _ValuecCount++;
+}else{
+IR_DATA = IRsensor.Smooth(IR_OUT); // triggers method and assign output to variable
+}
+if(IR_DATA < IR_Threshold){
+// if this if statement activates that means that the sensor has been triggered  
+IR_Status = 1;
+}else{
+IR_Status = 0;  
+}
+}
+
+if(Pir_Enabled == true){ 
+// pir code
+Pir_Data = digitalRead(Pir_Out);
+if(Pir_Data == 1){ // if PIR sensor actavated then set the alert status to active (true)
+Pir_Status=1;
+}else{
+Pir_Status=0;  
+}
+}
+
+if(Pir_Status || IR_Status == 1){ // check sensor data
+Alert_Status = "ACTIVE";
+}else{
+Alert_Status = "OFF";
+// no sensor actived no nothing
+}
+}  
+
 
 
 void setup(){
@@ -356,21 +433,50 @@ void setup(){
   radio.printDetails();                    // Dump the configuration of the rf unit for debugging || #include "printf.h" and also   printf_begin();
 
   radio.powerUp();                         //Power up the radio
-
-  delay(1000);
-
-  Serial.println("Initialising Main Program");
-  Serial.println("defaulting RECEIVE State");
-  Serial.println("\n *** R=RECEIVE | T=TRANSMIT ***");
-
-  delay(1000);
-
   // debug
+
+
+
+// sensor setup
+IR_Enabled = true;
+Pir_Enabled = true;
 Alert_Status = "OFF";
+// Initiate Mode
+Mode = "OFF";
+SecurityMode();
+// sensor pins to INPUT
+  pinMode (Pir_Out, INPUT); 
+  pinMode (IR_OUT, INPUT); 
+
+
+
+
+
+// --------------
+    Serial.println("Initialising Main Program");
+  Serial.println("defaulting OFF|RECEIVE State");
+
+
+  delay(1000);
+
 }
 void loop(void) {
 
-SendAlert();
-RECEIVE();
-delay(1000);
+  if(Mode == "OFF"){
+     Serial.println("\n Mode:OFF");
+     RECEIVE();  
+   }else{
+  
+ GetSensorData();
+ if(Alert_Status == "ACTIVE"){
+TRANSMIT("ALERT",Alert_Status);
+}else{
+   RECEIVE();  
+}
+
+ SensorValueDebug();
+ SensorAlertDebug();
+}
+
+delay(500);
 } // end of loop
