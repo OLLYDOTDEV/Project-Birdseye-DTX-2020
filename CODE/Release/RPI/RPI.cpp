@@ -95,6 +95,7 @@ bool connection = false ;
 string RoleInput;
 string Mode;
 
+  bool HID_Active;
 // |---------|
 // |Functions|
 // |---------|
@@ -121,11 +122,26 @@ void RXF() {
   delay(1000);
 }
 
-void AlertStatus(){
-
-// todo 
+void AlertStatus(string alert){
+cout <<"\nAlertinput: "<< alert;
 // run custom HID script
+if(HID_Active == true){
+cout << "HID script all ready active";
+if(alert == "OFF"){
+ HID_Active = false;
 
+}
+
+}else{
+if(alert == "ACTIVE"){
+ cout << "running HID script";
+ system("./../HID/desktop.sh");
+ HID_Active = true;
+}else{
+
+cout << "AlertStatus is Out of Bounds";
+}
+}
 } 
 
 void RECEIVE(){
@@ -151,15 +167,17 @@ void RECEIVE(){
         cout << "\nHeader: " ;
         cout << Wireless_Receive.Header ;
         cout << "\nData: " ;
-        cout << Wireless_Receive.Data ;  
-     
+        cout << Wireless_Receive.Data << "\n";  
+
+
 
   if(Wireless_Receive.Header == "MODE"){
     Mode = Wireless_Receive.Data;
+    cout << "Mode Set";
    }else if(Wireless_Receive.Header == "STATUS") {
     // no nothing as everthing for this is all ready done due to this is just to check if the radios are connected 
    }else if(Wireless_Receive.Header == "ALERT"){
-     AlertStatus();
+     AlertStatus(Wireless_Receive.Data);
    }else{
     cout << "\nInvalid Packet\n" ; 
    }
@@ -167,7 +185,6 @@ void RECEIVE(){
    received = false;
   }  
  }else{
-       delay(100);
       cout << "\nNothing to Read in NRF24 Buffer\n";
        } 
 }
@@ -251,7 +268,7 @@ if(PacketSizeError == 0){
      if( Transmission_error > 9 || Transmissiontime == true){ // keeps trying to send data for 5 seconds
        cout << "\nChecking if other Radio is Transmitting " ;
        RXF(); // change to 
-        delay(10);
+        delay(5);
        if(radio.available()){
          cout << "\nother radio transmitting waiting for available transmission slot" ;
          RECEIVE();
@@ -292,9 +309,9 @@ if(PacketSizeError == 0){
              }
             }
   
-}else{ // Runs if Packet failed to make aending criteria
+}else{ // Runs if Packet failed to make Sending criteria
       PacketSizeError = 0;
-      delay(1000);
+      delay(100);
      }
 }
 
