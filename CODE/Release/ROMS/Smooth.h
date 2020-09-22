@@ -23,7 +23,7 @@
 
 class AnalogSmooth {
   private:
-    #define _numReadings 8          // Used to give amount to data to keep a average of
+    #define _numReadings 5          // Used to give amount to data to keep a average of
     int _readings[_numReadings];    // the readings from the analog input
     int _readIndex = 0;             // the index of the current reading
     int _total = 0;                 // the running total
@@ -41,7 +41,6 @@ void AnalogSmooth::Smooth_setup(){
 }
 
 int AnalogSmooth::Smooth(int Sinputpin) {
- 
   // subtract the last reading:
   _total = _total - _readings[_readIndex];
   // read from the sensor:

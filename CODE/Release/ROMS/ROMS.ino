@@ -31,7 +31,7 @@ byte PacketSizeError = 0;
 unsigned long startTime, stopTime;
 
 bool Transmissiontime = false; // true means that the radio has been trying to tranmit for to long and failed
-
+bool JustTransmitted = false;
 
 //---------
 bool UnsentData = false;
@@ -92,7 +92,7 @@ String Data;
   // IR variables
   bool IR_Status = 0;
   int IR_DATA = 1000 ;
-  int IR_Threshold = 700 ;
+  int IR_Threshold = 900 ;
   int IR_OUT = A3; // connect ir sensor to arduino pin 2
   bool IR_Enabled;
   // PIR variables
@@ -174,22 +174,13 @@ if(Role == TX){
 }
 
 void TRANSMIT(String header, String data ){ // returns `true` if transmission successfully  
-
   if(Role == RX){
     TXF();
    } 
 
-
- Serial.println("\nInitialising Transmission Sequence");
 Wireless_Send.Header = header;
 Wireless_Send.Data = data;
 
- Serial.print( "\nReceived Header Input: ") ;
-  Serial.println(Wireless_Send.Header);
- Serial.print("\nReceived Data Input: ");
-  Serial.println(Wireless_Send.Data);
-
- Serial.println( "\n\nChecking Packet Integrity\n"); 
  // Checking for errors the packet that is to be sent
  if(Wireless_Send.Data.length() <= sizeof(Buff_Send.Data) && Wireless_Send.Header.length() <= sizeof(Buff_Send.Header)){ // Stop overloading Char array with to large sized string
  
@@ -201,23 +192,12 @@ Wireless_Send.Data = data;
     Buff_Send.Data[i] = Wireless_Send.Data[i]; // String to char Array  
    }
 
-   Serial.print("\nCapitalising...\n");
-
   for (unsigned int i=0; i<strlen(Buff_Send.Header); i++)
      Buff_Send.Header[i] = toupper(Buff_Send.Header[i]);
 
   for (unsigned int i=0; i<strlen(Buff_Send.Data); i++)
      Buff_Send.Data[i] = toupper(Buff_Send.Data[i]);
-
- Serial.println("\nNew Buffer value Set");
-
- Serial.print("\nHeader: ");
-  Serial.println(Buff_Send.Header);
-  Serial.println( "\nData: "); 
- Serial.println(Buff_Send.Data);
-
-
-  
+     
  }else{
       PacketSizeError = 1;
       Serial.println( "\n\n\n Warning failed to convert string to array: string to large, please make sure that the string is smaller then char array \n\n\n" );
@@ -467,16 +447,26 @@ void loop(void) {
      RECEIVE();  
    }else{
   
- GetSensorData();
- if(Alert_Status == "ACTIVE"){
-TRANSMIT("ALERT",Alert_Status);
-}else{
-   RECEIVE();  
-}
 
+ if(Alert_Status == "ACTIVE" ){
+TRANSMIT("ALERT",Alert_Status);
+while(Alert_Status == "ACTIVE" ){
+  GetSensorData();
+ SensorValueDebug();
+ SensorAlertDebug();   
+ }
+JustTransmitted = true;
+}
+if(JustTransmitted == true){
+ if(Alert_Status == "OFF"  ){
+    TRANSMIT("ALERT",Alert_Status); 
+    JustTransmitted = false;
+  }
+} 
+  
+  RECEIVE();  
+ GetSensorData();
  SensorValueDebug();
  SensorAlertDebug();
 }
-
-delay(500);
 } // end of loop
