@@ -135,7 +135,7 @@ if(alert == "OFF"){
 }else{
 if(alert == "ACTIVE"){
  cout << "running HID script";
- system("./../HID/desktop.sh");
+ system("./../HID/Selected.sh");
  HID_Active = true;
 }else{
 
