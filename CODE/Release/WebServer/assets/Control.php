@@ -11,9 +11,10 @@ echo
  
 <link rel="stylesheet" href="assets/Styles.css">
 </head>
- <center> 
 
-<table>
+ <body>
+ <center> 
+ <table class="main">
 <tr>
 <td colspan="2" class="control">Control panel</td>
 </tr>
@@ -30,21 +31,47 @@ echo
 <td> <a href="kill.php">KILL </a> </td>
 </tr>
 <tr>
-<td colspan="2"> Processes: <br><span class="tooltiptext">F5 to update Processes</span></td>
+<td colspan="2" > Processes: <br><span class="tooltiptext">F5 to update Processes</span></td>
 <td  colspan="6" >';
 echo shell_exec("sudo ps aux | grep -ie RPI | grep -v grep");
 echo '</td>
  </tr>
+ <!-- remove if this is causing issues with your devices resolution-->
+<tr> 
+<td style=" border: 0px; color: white;"> test</td>
+</tr> 
+<!-- -->
+
+
 </table>
 </td>
+
+
 <td>
 <table>
 
 <tr>
-<td colspan="100" > Select HID Script:</td>
+<td colspan="2" > Select HID Script: <br>
+<span class="tooltiptext">Upload Custom Script</span>
+
+
+</td>
+<td colspan="3">
+';
+
+$txtfile = fopen("../HID/Selected.txt", "r") or die("Unable to open file!");
+echo "Selected: ";
+echo fread($txtfile,filesize("../HID/Selected.txt"));
+fclose($txtfile);
+
+
+echo'
+</td>
 </tr>
 <tr>
 ';
+
+
 
 $folderPath = "../HID";
 $countFile = 0;
@@ -52,7 +79,7 @@ $totalFiles = glob($folderPath . "*");
 
  $countFile = count($totalFiles);
 
-$files = array_diff(scandir($folderPath), array('..', '.','.htaccess','Selected.sh'));// removes the .. , . from linux file systems
+$files = array_diff(scandir($folderPath), array('..', '.','.htaccess','Selected.sh','Selected.txt'));// removes the .. , . from linux file systems
 
 
 $i = 0;
@@ -89,7 +116,7 @@ echo'
 function pagechange(){
     setTimeout(function() { 
         window.location.href = "index.php";
-    }, 5000); 
+    }, 3000); 
 }
 
 pagechange();

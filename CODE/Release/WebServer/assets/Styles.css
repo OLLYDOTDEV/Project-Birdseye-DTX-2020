@@ -1,14 +1,15 @@
  /* center page */
 html{
-
-margin-top:15%;
-
+overflow: hidden;
+margin-top: 15%;
+font-family: "Lucida Console", Courier, monospace;
 /* table */
 }
+
+
 table, td{
-border-style: solid;
 border-collapse: collapse;
-font-family: "Lucida Console", Courier, monospace;
+
 text-align:center;
 }
 td{
@@ -16,9 +17,11 @@ td{
         border: 5px solid black;
         border-collapse: collapse;
 }
+
 /* Title */
 .control{
 font-size:50px;
+width: 100%;
 }
 /* link stuff */
 a:link {
@@ -31,3 +34,4 @@ a:visited {
 .tooltiptext{
     font-size:10px
 }
+
