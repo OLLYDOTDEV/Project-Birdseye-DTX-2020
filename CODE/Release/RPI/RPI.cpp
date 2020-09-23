@@ -95,7 +95,7 @@ bool connection = false ;
 string RoleInput;
 string Mode;
 
-  bool HID_Active;
+  bool HID_Active = false;
 // |---------|
 // |Functions|
 // |---------|
@@ -135,7 +135,7 @@ if(alert == "OFF"){
 }else{
 if(alert == "ACTIVE"){
  cout << "running HID script";
- system("bash ./../HID/Selected.sh");
+ system("pwd && bash /projects/Project-Birdseye-DTX-2020/CODE/Release/HID/Selected.sh");
  HID_Active = true;
 }else{
 
