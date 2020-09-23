@@ -1,1 +1,1 @@
-MinWindow.sh
+Desktop.sh
